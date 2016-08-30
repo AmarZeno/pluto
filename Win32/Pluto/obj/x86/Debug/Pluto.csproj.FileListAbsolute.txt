@@ -1,0 +1,104 @@
+c:\users\zenos\documents\visual studio 2015\Projects\Pluto\Pluto\bin\Windows\x86\Debug\Pluto.exe
+c:\users\zenos\documents\visual studio 2015\Projects\Pluto\Pluto\bin\Windows\x86\Debug\Pluto.pdb
+c:\users\zenos\documents\visual studio 2015\Projects\Pluto\Pluto\bin\Windows\x86\Debug\MonoGame.Framework.dll
+c:\users\zenos\documents\visual studio 2015\Projects\Pluto\Pluto\bin\Windows\x86\Debug\SharpDX.MediaFoundation.dll
+c:\users\zenos\documents\visual studio 2015\Projects\Pluto\Pluto\bin\Windows\x86\Debug\SharpDX.dll
+c:\users\zenos\documents\visual studio 2015\Projects\Pluto\Pluto\bin\Windows\x86\Debug\SharpDX.XAudio2.dll
+c:\users\zenos\documents\visual studio 2015\Projects\Pluto\Pluto\bin\Windows\x86\Debug\SharpDX.DXGI.dll
+c:\users\zenos\documents\visual studio 2015\Projects\Pluto\Pluto\bin\Windows\x86\Debug\SharpDX.Direct3D11.dll
+c:\users\zenos\documents\visual studio 2015\Projects\Pluto\Pluto\bin\Windows\x86\Debug\SharpDX.Direct2D1.dll
+c:\users\zenos\documents\visual studio 2015\Projects\Pluto\Pluto\bin\Windows\x86\Debug\SharpDX.XInput.dll
+c:\users\zenos\documents\visual studio 2015\Projects\Pluto\Pluto\bin\Windows\x86\Debug\SharpDX.RawInput.dll
+c:\users\zenos\documents\visual studio 2015\Projects\Pluto\Pluto\bin\Windows\x86\Debug\SharpDX.Direct3D9.dll
+c:\users\zenos\documents\visual studio 2015\Projects\Pluto\Pluto\bin\Windows\x86\Debug\MonoGame.Framework.xml
+c:\users\zenos\documents\visual studio 2015\Projects\Pluto\Pluto\bin\Windows\x86\Debug\SharpDX.MediaFoundation.xml
+c:\users\zenos\documents\visual studio 2015\Projects\Pluto\Pluto\bin\Windows\x86\Debug\SharpDX.xml
+c:\users\zenos\documents\visual studio 2015\Projects\Pluto\Pluto\bin\Windows\x86\Debug\SharpDX.XAudio2.xml
+c:\users\zenos\documents\visual studio 2015\Projects\Pluto\Pluto\bin\Windows\x86\Debug\SharpDX.DXGI.xml
+c:\users\zenos\documents\visual studio 2015\Projects\Pluto\Pluto\bin\Windows\x86\Debug\SharpDX.Direct3D11.xml
+c:\users\zenos\documents\visual studio 2015\Projects\Pluto\Pluto\bin\Windows\x86\Debug\SharpDX.Direct2D1.xml
+c:\users\zenos\documents\visual studio 2015\Projects\Pluto\Pluto\bin\Windows\x86\Debug\SharpDX.XInput.xml
+c:\users\zenos\documents\visual studio 2015\Projects\Pluto\Pluto\bin\Windows\x86\Debug\SharpDX.RawInput.xml
+c:\users\zenos\documents\visual studio 2015\Projects\Pluto\Pluto\bin\Windows\x86\Debug\SharpDX.Direct3D9.xml
+c:\users\zenos\documents\visual studio 2015\Projects\Pluto\Pluto\obj\x86\Debug\Pluto.csprojResolveAssemblyReference.cache
+c:\users\zenos\documents\visual studio 2015\Projects\Pluto\Pluto\obj\x86\Debug\Pluto.exe
+c:\users\zenos\documents\visual studio 2015\Projects\Pluto\Pluto\obj\x86\Debug\Pluto.pdb
+C:\Users\u1077160\Documents\Visual Studio 2015\Projects\Pluto\Pluto\obj\x86\Debug\Pluto.exe
+C:\Users\u1077160\Documents\Visual Studio 2015\Projects\Pluto\Pluto\obj\x86\Debug\Pluto.pdb
+C:\Users\u1077160\Documents\Visual Studio 2015\Projects\Pluto\Pluto\bin\Windows\x86\Debug\Pluto.exe
+C:\Users\u1077160\Documents\Visual Studio 2015\Projects\Pluto\Pluto\bin\Windows\x86\Debug\Pluto.pdb
+C:\Users\u1077160\Documents\Visual Studio 2015\Projects\Pluto\Pluto\bin\Windows\x86\Debug\MonoGame.Framework.dll
+C:\Users\u1077160\Documents\Visual Studio 2015\Projects\Pluto\Pluto\bin\Windows\x86\Debug\SharpDX.MediaFoundation.dll
+C:\Users\u1077160\Documents\Visual Studio 2015\Projects\Pluto\Pluto\bin\Windows\x86\Debug\SharpDX.dll
+C:\Users\u1077160\Documents\Visual Studio 2015\Projects\Pluto\Pluto\bin\Windows\x86\Debug\SharpDX.XAudio2.dll
+C:\Users\u1077160\Documents\Visual Studio 2015\Projects\Pluto\Pluto\bin\Windows\x86\Debug\SharpDX.DXGI.dll
+C:\Users\u1077160\Documents\Visual Studio 2015\Projects\Pluto\Pluto\bin\Windows\x86\Debug\SharpDX.Direct3D11.dll
+C:\Users\u1077160\Documents\Visual Studio 2015\Projects\Pluto\Pluto\bin\Windows\x86\Debug\SharpDX.Direct2D1.dll
+C:\Users\u1077160\Documents\Visual Studio 2015\Projects\Pluto\Pluto\bin\Windows\x86\Debug\SharpDX.XInput.dll
+C:\Users\u1077160\Documents\Visual Studio 2015\Projects\Pluto\Pluto\bin\Windows\x86\Debug\SharpDX.RawInput.dll
+C:\Users\u1077160\Documents\Visual Studio 2015\Projects\Pluto\Pluto\bin\Windows\x86\Debug\SharpDX.Direct3D9.dll
+C:\Users\u1077160\Documents\Visual Studio 2015\Projects\Pluto\Pluto\bin\Windows\x86\Debug\MonoGame.Framework.xml
+C:\Users\u1077160\Documents\Visual Studio 2015\Projects\Pluto\Pluto\bin\Windows\x86\Debug\SharpDX.MediaFoundation.xml
+C:\Users\u1077160\Documents\Visual Studio 2015\Projects\Pluto\Pluto\bin\Windows\x86\Debug\SharpDX.xml
+C:\Users\u1077160\Documents\Visual Studio 2015\Projects\Pluto\Pluto\bin\Windows\x86\Debug\SharpDX.XAudio2.xml
+C:\Users\u1077160\Documents\Visual Studio 2015\Projects\Pluto\Pluto\bin\Windows\x86\Debug\SharpDX.DXGI.xml
+C:\Users\u1077160\Documents\Visual Studio 2015\Projects\Pluto\Pluto\bin\Windows\x86\Debug\SharpDX.Direct3D11.xml
+C:\Users\u1077160\Documents\Visual Studio 2015\Projects\Pluto\Pluto\bin\Windows\x86\Debug\SharpDX.Direct2D1.xml
+C:\Users\u1077160\Documents\Visual Studio 2015\Projects\Pluto\Pluto\bin\Windows\x86\Debug\SharpDX.XInput.xml
+C:\Users\u1077160\Documents\Visual Studio 2015\Projects\Pluto\Pluto\bin\Windows\x86\Debug\SharpDX.RawInput.xml
+C:\Users\u1077160\Documents\Visual Studio 2015\Projects\Pluto\Pluto\bin\Windows\x86\Debug\SharpDX.Direct3D9.xml
+C:\Users\u1077160\Documents\Visual Studio 2015\Projects\Pluto\Pluto\obj\x86\Debug\Pluto.csprojResolveAssemblyReference.cache
+C:\Users\zenos\Documents\Visual Studio 2015\Pluto\Pluto\obj\x86\Debug\Pluto.exe
+C:\Users\zenos\Documents\Visual Studio 2015\Pluto\Pluto\obj\x86\Debug\Pluto.pdb
+C:\Users\zenos\Documents\Visual Studio 2015\Pluto\Pluto\bin\Windows\x86\Debug\Pluto.exe
+C:\Users\zenos\Documents\Visual Studio 2015\Pluto\Pluto\bin\Windows\x86\Debug\Pluto.pdb
+C:\Users\zenos\Documents\Visual Studio 2015\Pluto\Pluto\bin\Windows\x86\Debug\MonoGame.Framework.dll
+C:\Users\zenos\Documents\Visual Studio 2015\Pluto\Pluto\bin\Windows\x86\Debug\SharpDX.MediaFoundation.dll
+C:\Users\zenos\Documents\Visual Studio 2015\Pluto\Pluto\bin\Windows\x86\Debug\SharpDX.dll
+C:\Users\zenos\Documents\Visual Studio 2015\Pluto\Pluto\bin\Windows\x86\Debug\SharpDX.XAudio2.dll
+C:\Users\zenos\Documents\Visual Studio 2015\Pluto\Pluto\bin\Windows\x86\Debug\SharpDX.DXGI.dll
+C:\Users\zenos\Documents\Visual Studio 2015\Pluto\Pluto\bin\Windows\x86\Debug\SharpDX.Direct3D11.dll
+C:\Users\zenos\Documents\Visual Studio 2015\Pluto\Pluto\bin\Windows\x86\Debug\SharpDX.Direct2D1.dll
+C:\Users\zenos\Documents\Visual Studio 2015\Pluto\Pluto\bin\Windows\x86\Debug\SharpDX.XInput.dll
+C:\Users\zenos\Documents\Visual Studio 2015\Pluto\Pluto\bin\Windows\x86\Debug\SharpDX.RawInput.dll
+C:\Users\zenos\Documents\Visual Studio 2015\Pluto\Pluto\bin\Windows\x86\Debug\SharpDX.Direct3D9.dll
+C:\Users\zenos\Documents\Visual Studio 2015\Pluto\Pluto\bin\Windows\x86\Debug\MonoGame.Framework.xml
+C:\Users\zenos\Documents\Visual Studio 2015\Pluto\Pluto\bin\Windows\x86\Debug\SharpDX.MediaFoundation.xml
+C:\Users\zenos\Documents\Visual Studio 2015\Pluto\Pluto\bin\Windows\x86\Debug\SharpDX.xml
+C:\Users\zenos\Documents\Visual Studio 2015\Pluto\Pluto\bin\Windows\x86\Debug\SharpDX.XAudio2.xml
+C:\Users\zenos\Documents\Visual Studio 2015\Pluto\Pluto\bin\Windows\x86\Debug\SharpDX.DXGI.xml
+C:\Users\zenos\Documents\Visual Studio 2015\Pluto\Pluto\bin\Windows\x86\Debug\SharpDX.Direct3D11.xml
+C:\Users\zenos\Documents\Visual Studio 2015\Pluto\Pluto\bin\Windows\x86\Debug\SharpDX.Direct2D1.xml
+C:\Users\zenos\Documents\Visual Studio 2015\Pluto\Pluto\bin\Windows\x86\Debug\SharpDX.XInput.xml
+C:\Users\zenos\Documents\Visual Studio 2015\Pluto\Pluto\bin\Windows\x86\Debug\SharpDX.RawInput.xml
+C:\Users\zenos\Documents\Visual Studio 2015\Pluto\Pluto\bin\Windows\x86\Debug\SharpDX.Direct3D9.xml
+C:\Users\zenos\Documents\Visual Studio 2015\Pluto\Pluto\obj\x86\Debug\Pluto.csprojResolveAssemblyReference.cache
+C:\Users\zenos\documents\visual studio 2015\Projects\Pluto\Pluto\bin\Windows\x86\Debug\Content\Pluto.xnb
+C:\Users\zenos\documents\visual studio 2015\Projects\Pluto\Pluto\bin\Windows\x86\Debug\Content\Pluto_Eyes.xnb
+C:\Users\u1077160\Documents\Rapid Prototyping\pluto\Win32\Pluto\obj\x86\Debug\Pluto.exe
+C:\Users\u1077160\Documents\Rapid Prototyping\pluto\Win32\Pluto\obj\x86\Debug\Pluto.pdb
+C:\Users\u1077160\Documents\Rapid Prototyping\pluto\Win32\Pluto\bin\Windows\x86\Debug\Content\Pluto.xnb
+C:\Users\u1077160\Documents\Rapid Prototyping\pluto\Win32\Pluto\bin\Windows\x86\Debug\Content\Pluto_Eyes.xnb
+C:\Users\u1077160\Documents\Rapid Prototyping\pluto\Win32\Pluto\bin\Windows\x86\Debug\Pluto.exe
+C:\Users\u1077160\Documents\Rapid Prototyping\pluto\Win32\Pluto\bin\Windows\x86\Debug\Pluto.pdb
+C:\Users\u1077160\Documents\Rapid Prototyping\pluto\Win32\Pluto\bin\Windows\x86\Debug\MonoGame.Framework.dll
+C:\Users\u1077160\Documents\Rapid Prototyping\pluto\Win32\Pluto\bin\Windows\x86\Debug\SharpDX.MediaFoundation.dll
+C:\Users\u1077160\Documents\Rapid Prototyping\pluto\Win32\Pluto\bin\Windows\x86\Debug\SharpDX.dll
+C:\Users\u1077160\Documents\Rapid Prototyping\pluto\Win32\Pluto\bin\Windows\x86\Debug\SharpDX.XAudio2.dll
+C:\Users\u1077160\Documents\Rapid Prototyping\pluto\Win32\Pluto\bin\Windows\x86\Debug\SharpDX.DXGI.dll
+C:\Users\u1077160\Documents\Rapid Prototyping\pluto\Win32\Pluto\bin\Windows\x86\Debug\SharpDX.Direct3D11.dll
+C:\Users\u1077160\Documents\Rapid Prototyping\pluto\Win32\Pluto\bin\Windows\x86\Debug\SharpDX.Direct2D1.dll
+C:\Users\u1077160\Documents\Rapid Prototyping\pluto\Win32\Pluto\bin\Windows\x86\Debug\SharpDX.XInput.dll
+C:\Users\u1077160\Documents\Rapid Prototyping\pluto\Win32\Pluto\bin\Windows\x86\Debug\SharpDX.RawInput.dll
+C:\Users\u1077160\Documents\Rapid Prototyping\pluto\Win32\Pluto\bin\Windows\x86\Debug\SharpDX.Direct3D9.dll
+C:\Users\u1077160\Documents\Rapid Prototyping\pluto\Win32\Pluto\bin\Windows\x86\Debug\MonoGame.Framework.xml
+C:\Users\u1077160\Documents\Rapid Prototyping\pluto\Win32\Pluto\bin\Windows\x86\Debug\SharpDX.MediaFoundation.xml
+C:\Users\u1077160\Documents\Rapid Prototyping\pluto\Win32\Pluto\bin\Windows\x86\Debug\SharpDX.xml
+C:\Users\u1077160\Documents\Rapid Prototyping\pluto\Win32\Pluto\bin\Windows\x86\Debug\SharpDX.XAudio2.xml
+C:\Users\u1077160\Documents\Rapid Prototyping\pluto\Win32\Pluto\bin\Windows\x86\Debug\SharpDX.DXGI.xml
+C:\Users\u1077160\Documents\Rapid Prototyping\pluto\Win32\Pluto\bin\Windows\x86\Debug\SharpDX.Direct3D11.xml
+C:\Users\u1077160\Documents\Rapid Prototyping\pluto\Win32\Pluto\bin\Windows\x86\Debug\SharpDX.Direct2D1.xml
+C:\Users\u1077160\Documents\Rapid Prototyping\pluto\Win32\Pluto\bin\Windows\x86\Debug\SharpDX.XInput.xml
+C:\Users\u1077160\Documents\Rapid Prototyping\pluto\Win32\Pluto\bin\Windows\x86\Debug\SharpDX.RawInput.xml
+C:\Users\u1077160\Documents\Rapid Prototyping\pluto\Win32\Pluto\bin\Windows\x86\Debug\SharpDX.Direct3D9.xml
+C:\Users\u1077160\Documents\Rapid Prototyping\pluto\Win32\Pluto\obj\x86\Debug\Pluto.csprojResolveAssemblyReference.cache
