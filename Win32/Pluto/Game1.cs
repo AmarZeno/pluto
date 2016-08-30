@@ -12,10 +12,11 @@ namespace Pluto
     {
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
+        Texture2D asteroidTexture;
         Texture2D sunTexture;
-        float sunCircularRotationOffset;
         Texture2D planetTexture;
-        float rotationAngleInRadians;
+        Texture2D testCircle;
+        float sunCircularRotationOffset;
         Vector2 mercuryPosition;
         Vector2 venusPosition;
         Vector2 earthPosition;
@@ -55,7 +56,7 @@ namespace Pluto
         float uranusSpeed;
         float neptuneSpeed;
         float plutoSpeed;
-        Texture2D testCircle;
+        
 
         public Game1()
         {
@@ -95,6 +96,7 @@ namespace Pluto
            // planetTexture = new Texture2D(graphics.GraphicsDevice, 10, 10);
             planetTexture = Content.Load<Texture2D>("Pluto");
 
+            asteroidTexture = new Texture2D(graphics.GraphicsDevice, 20, 20);
             // Planet distance calculation would require the sun texture to be initialized
             configurePlanetDistance();
         }
@@ -108,6 +110,7 @@ namespace Pluto
             // TODO: Unload any non ContentManager content here
             sunTexture.Dispose();
             planetTexture.Dispose();
+            asteroidTexture.Dispose();
         }
 
         /// <summary>
@@ -145,7 +148,6 @@ namespace Pluto
         #region Game1 CustomAccessors
         public void initializeVariables() {
             sunCircularRotationOffset = 0;
-            rotationAngleInRadians = 0;
             mercuryPosition = new Vector2();
             configurePlanetSize();
         }
@@ -184,6 +186,8 @@ namespace Pluto
             saturnSpeed = saturnSpeed + 0.007f;
             uranusSpeed = uranusSpeed + 0.01f;
             neptuneSpeed = neptuneSpeed + 0.01f;
+           // float defaultPlutoSpeed = plutoSpeed;
+           // plutoSpeed = MathHelper.Lerp(defaultPlutoSpeed, plutoSpeed + 0.005f, 0.5f);
             plutoSpeed = plutoSpeed + 0.005f;
         }
 
@@ -197,6 +201,7 @@ namespace Pluto
             Color[] sunColorData = new Color[50 * 50];
             for (int i = 0; i < sunColorData.Length; ++i) sunColorData[i] = Color.Chocolate;
             sunTexture.SetData(sunColorData);
+            asteroidTexture.SetData(sunColorData);
 
             sunCircularRotationOffset = sunCircularRotationOffset + 0.01f;
             screenWidthCenter = GraphicsDevice.Viewport.Width / 2;
@@ -223,7 +228,7 @@ namespace Pluto
                                               Matrix.CreateRotationZ(neptuneSpeed));
             plutoPosition = screenCenter + Vector2.Transform(new Vector2(plutoDistance, 0),
                                               Matrix.CreateRotationZ(plutoSpeed));
-
+            
 
             //var plutoDestination = new Rectangle(100, 100, 500, 500);
             testCircle = CreateCircle(Convert.ToInt32(plutoDistance));
@@ -238,17 +243,18 @@ namespace Pluto
                 sunTexture.SetData(sunColorData);
                 if (state.LeftButton == ButtonState.Pressed)
                 {
-                    // Do cool stuff here
-                    plutoSpeed = plutoSpeed + 0.009f;
+                    float defaultPlutoSpeed = plutoSpeed;
+                    plutoSpeed = MathHelper.Lerp(defaultPlutoSpeed, plutoSpeed + 0.009f, 1.0f);
+                    //plutoSpeed = plutoSpeed + 0.009f;
                 }
-                
+
                 if (state.RightButton == ButtonState.Pressed)
                 {
+                    float defaultPlutoSpeed = plutoSpeed;
+                    // plutoSpeed = MathHelper.Lerp(defaultPlutoSpeed, plutoSpeed - 0.003f, 0.1f);
                     plutoSpeed = plutoSpeed - 0.003f;
                 }
             }
-                
-  
         }
         #endregion
 
@@ -257,6 +263,8 @@ namespace Pluto
             spriteBatch.Begin();
 
             spriteBatch.Draw(sunTexture, new Vector2(screenWidthCenter, screenHeightCenter), rotation: sunCircularRotationOffset, origin: new Vector2(sunTexture.Width / 2, sunTexture.Height / 2));
+
+            spriteBatch.Draw(asteroidTexture, new Vector2(screenWidthCenter, screenHeightCenter), origin: new Vector2(100, 100));
 
             spriteBatch.Draw(planetTexture, destinationRectangle:new Rectangle(Convert.ToInt32(mercuryPosition.X - mercurySize / 2) , Convert.ToInt32(mercuryPosition.Y - mercurySize / 2), mercurySize, mercurySize));
 
