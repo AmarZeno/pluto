@@ -120,6 +120,9 @@ namespace Pluto
         float redCometMeteorPositionFrameTime = 0.000001f;
         float redCometMeteorTime;
 
+        private SpriteFont font;
+        private int score = 0;
+
         public Game1()
         {
             graphics = new GraphicsDeviceManager(this);
@@ -165,6 +168,7 @@ namespace Pluto
             orbitNormalTexture = Content.Load<Texture2D>("OrbitNormal");
             orbitSelectedTexture = Content.Load<Texture2D>("OrbitSelected");
             // Planet distance calculation would require the sun texture to be initialized
+            font = Content.Load<SpriteFont>("Score");
             configurePlanetDistance();
             turnAudioOn();
         }
@@ -337,15 +341,17 @@ namespace Pluto
             //var plutoDestination = new Rectangle(100, 100, 500, 500);
             var plutoDestination = new Circle(screenCenter, plutoDistance);
             var neptuneDestination = new Circle(screenCenter, neptuneDistance + 20);
-            var UranusDestination = new Circle(screenCenter, uranusDistance);
+            var UranusDestination = new Circle(screenCenter, uranusDistance + 20);
+            var saturnDestination = new Circle(screenCenter, saturnDistance + 10);
             bool plutoMouseOver = plutoDestination.Contains(new Vector2(state.X, state.Y));
             bool neptuneMouseOver = neptuneDestination.Contains(new Vector2(state.X, state.Y));
             bool uranusMouseOver = UranusDestination.Contains(new Vector2(state.X, state.Y));
+            bool saturnMouseOver = saturnDestination.Contains(new Vector2(state.X, state.Y));
             if (plutoMouseOver && !neptuneMouseOver)
             {
                 Color[] newSunColorData = new Color[50 * 50];
                 for (int i = 0; i < sunColorData.Length; ++i) sunColorData[i] = Color.Red;
-              //  sunTexture.SetData(sunColorData);
+                //  sunTexture.SetData(sunColorData);
                 plutoCurrentTexture = orbitSelectedTexture;
                 if (state.LeftButton == ButtonState.Pressed)
                 {
@@ -361,10 +367,11 @@ namespace Pluto
                     plutoSpeed = plutoSpeed - 0.003f;
                 }
             }
-            else if (neptuneMouseOver && !uranusMouseOver) {
+            else if (neptuneMouseOver && !uranusMouseOver)
+            {
                 Color[] newSunColorData = new Color[50 * 50];
                 for (int i = 0; i < sunColorData.Length; ++i) sunColorData[i] = Color.Red;
-               // sunTexture.SetData(sunColorData);
+                // sunTexture.SetData(sunColorData);
                 neptuneCurrentTexture = orbitSelectedTexture;
                 if (state.LeftButton == ButtonState.Pressed)
                 {
@@ -378,6 +385,22 @@ namespace Pluto
                     float defaultNeptuneSpeed = neptuneSpeed;
                     // plutoSpeed = MathHelper.Lerp(defaultPlutoSpeed, plutoSpeed - 0.003f, 0.1f);
                     neptuneSpeed = neptuneSpeed - 0.003f;
+                }
+            }
+            else if (uranusMouseOver && !saturnMouseOver) {
+                uranusCurrentTexture = orbitSelectedTexture;
+                if (state.LeftButton == ButtonState.Pressed)
+                {
+                    float defaultUranusSpeed = uranusSpeed;
+                    uranusSpeed = MathHelper.Lerp(defaultUranusSpeed, uranusSpeed + 0.009f, 1.0f);
+                    //plutoSpeed = plutoSpeed + 0.009f;
+                }
+
+                if (state.RightButton == ButtonState.Pressed)
+                {
+                    float defaultUranusSpeed = uranusSpeed;
+                    // plutoSpeed = MathHelper.Lerp(defaultPlutoSpeed, plutoSpeed - 0.003f, 0.1f);
+                    uranusSpeed = uranusSpeed - 0.003f;
                 }
             }
 
@@ -452,6 +475,7 @@ namespace Pluto
                 plutoSize = plutoSize + 15;
                 meteorPositionY = 1920;
                 generateRandomPosition();
+                score++;
             }
 
             bool doesRedAsteroidCollide = tempPlutoRectangle.Intersects(redAsteroidVirtualRectangle);
@@ -459,6 +483,7 @@ namespace Pluto
                 plutoSize = plutoSize - 15;
                 redMeteorPositionX = -100;
                 generateRandomRedComet();
+                score++;
             }
 
             Rectangle tempNeptuneRectangle = new Rectangle((int)neptunePosition.X, (int)neptunePosition.Y, neptuneSize, neptuneSize);
@@ -468,6 +493,7 @@ namespace Pluto
                 neptuneSize = neptuneSize + 15;
                 meteorPositionY = 1920;
                 generateRandomPosition();
+                score++;
             }
             
             
@@ -477,6 +503,27 @@ namespace Pluto
                 neptuneSize = neptuneSize - 15;
                 redMeteorPositionX = -100;
                 generateRandomRedComet();
+                score++;
+            }
+
+            Rectangle tempUranusRectangle = new Rectangle((int)uranusPosition.X, (int)uranusPosition.Y, neptuneSize, neptuneSize);
+            bool doesUranusCollideBlueAsteroid = tempUranusRectangle.Intersects(blueAsteroidVirtualRectangle);
+            if (doesUranusCollideBlueAsteroid)
+            {
+                uranusSize = uranusSize + 15;
+                meteorPositionY = 1920;
+                generateRandomPosition();
+                score++;
+            }
+
+
+            bool doesUranusCollideRedAsteroid = tempUranusRectangle.Intersects(redAsteroidVirtualRectangle);
+            if (doesUranusCollideRedAsteroid)
+            {
+                uranusSize = uranusSize - 15;
+                redMeteorPositionX = -100;
+                generateRandomRedComet();
+                score++;
             }
 
         }
@@ -530,6 +577,10 @@ namespace Pluto
 
             spriteBatch.Draw(redCometTexture, redAsteroidPosition, redAsteroidRectangle, Color.White, 1.55f,
                origin, 1.0f, SpriteEffects.None, 0.0f);
+
+            spriteBatch.DrawString(font, score.ToString(), new Vector2(150, 100), Color.White);
+
+
             spriteBatch.End();
         }
         #endregion
