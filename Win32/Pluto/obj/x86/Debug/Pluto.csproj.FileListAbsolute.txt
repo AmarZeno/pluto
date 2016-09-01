@@ -145,3 +145,4 @@ C:\Users\zenos\Documents\rapidprototypes\pluto\Win32\Pluto\bin\Windows\x86\Debug
 C:\Users\u1077160\Documents\Rapid Prototyping\pluto\Win32\Pluto\bin\Windows\x86\Debug\Content\Background_Audio.wma
 C:\Users\u1077160\Documents\Rapid Prototyping\pluto\Win32\Pluto\bin\Windows\x86\Debug\Content\Background_Audio.xnb
 C:\Users\u1077160\Documents\Rapid Prototyping\pluto\Win32\Pluto\bin\Windows\x86\Debug\Content\Red_Comet.xnb
+C:\Users\u1077160\Documents\Rapid Prototyping\pluto\Win32\Pluto\bin\Windows\x86\Debug\Content\EarthPlanetShadow.xnb

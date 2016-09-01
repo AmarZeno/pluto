@@ -19,6 +19,7 @@ namespace Pluto
         Texture2D sunTexture;
         Texture2D planetTexture;
         Texture2D backgroundTexture;
+        Texture2D earthPlanetTexture;
         float sunCircularRotationOffset;
         Vector2 mercuryPosition;
         Vector2 venusPosition;
@@ -157,6 +158,7 @@ namespace Pluto
             // TODO: use this.Content to load your game content here
             // sunTexture = new Texture2D(graphics.GraphicsDevice, 50, 50);
             sunTexture = Content.Load<Texture2D>("TheSun");
+            earthPlanetTexture = Content.Load<Texture2D>("EarthPlanetShadow");
            // planetTexture = new Texture2D(graphics.GraphicsDevice, 10, 10);
             planetTexture = Content.Load<Texture2D>("Pluto");
             backgroundTexture = Content.Load<Texture2D>("SpaceBackground");
@@ -505,7 +507,7 @@ namespace Pluto
 
             spriteBatch.Draw(planetTexture, destinationRectangle: new Rectangle(Convert.ToInt32(venusPosition.X - venusSize / 2), Convert.ToInt32(venusPosition.Y - venusSize / 2), venusSize, venusSize));
 
-            spriteBatch.Draw(planetTexture, destinationRectangle: new Rectangle(Convert.ToInt32(earthPosition.X - earthSize / 2), Convert.ToInt32(earthPosition.Y - earthSize / 2), mercurySize, earthSize));
+            spriteBatch.Draw(earthPlanetTexture, destinationRectangle: new Rectangle(Convert.ToInt32(earthPosition.X - earthSize / 2), Convert.ToInt32(earthPosition.Y - earthSize / 2), mercurySize, earthSize));
 
             spriteBatch.Draw(planetTexture, destinationRectangle: new Rectangle(Convert.ToInt32(marsPosition.X - marsSize / 2), Convert.ToInt32(marsPosition.Y - marsSize / 2), marsSize, marsSize));
 
