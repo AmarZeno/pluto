@@ -56,7 +56,25 @@ namespace Pluto
         float uranusSpeed;
         float neptuneSpeed;
         float plutoSpeed;
-        
+
+
+        // Animation variables
+        // the spritesheet containing our animation frames
+        Texture2D spriteSheet;
+        // the elapsed amount of time the frame has been shown for
+        float time;
+        // duration of time to show each frame
+        float frameTime = 0.01f;
+        // an index of the current frame being shown
+        int frameIndex = 1;
+        // total number of frames in our spritesheet
+        const int totalFrames = 29;
+        // define the size of our animation frame
+        int frameHeight = 328;
+        int frameWidth = 54;
+        int meteorPositionY = 1920;
+        float meteorPositionFrameTime = 0.000001f;
+        float meteorTime;
 
         public Game1()
         {
@@ -90,6 +108,7 @@ namespace Pluto
         {
             // Create a new SpriteBatch, which can be used to draw textures.
             spriteBatch = new SpriteBatch(GraphicsDevice);
+            spriteSheet = Content.Load<Texture2D>("CometAnimation");
 
             // TODO: use this.Content to load your game content here
             sunTexture = new Texture2D(graphics.GraphicsDevice, 50, 50);
@@ -125,7 +144,7 @@ namespace Pluto
 
             // TODO: Add your update logic here
 
-            customUpdate();
+            customUpdate(gameTime);
 
             base.Update(gameTime);
         }
@@ -194,7 +213,7 @@ namespace Pluto
         #endregion
 
         #region Game1 CustomUpdate
-        public void customUpdate()
+        public void customUpdate(GameTime gameTime)
         {
             MouseState state = Mouse.GetState();
 
@@ -255,6 +274,33 @@ namespace Pluto
                     plutoSpeed = plutoSpeed - 0.003f;
                 }
             }
+
+           // Process elapsed time
+           time += (float)gameTime.ElapsedGameTime.TotalSeconds;
+            while (time > frameTime)
+            {
+                // Play the next frame in the SpriteSheet
+                frameIndex++;
+
+                // reset elapsed time
+                time = 0f;
+            }
+
+            if (frameIndex > totalFrames) frameIndex = 1;
+
+            // Movement
+
+            meteorTime += (float)gameTime.ElapsedGameTime.TotalSeconds + 10;
+            while (meteorTime > meteorPositionFrameTime)
+            {
+                meteorPositionY = meteorPositionY-5;
+                meteorTime = 0f;
+            }
+
+            if (meteorPositionY < 0) {
+                meteorPositionY = 1920;
+            }
+
         }
         #endregion
 
@@ -264,6 +310,7 @@ namespace Pluto
 
             spriteBatch.Draw(sunTexture, new Vector2(screenWidthCenter, screenHeightCenter), rotation: sunCircularRotationOffset, origin: new Vector2(sunTexture.Width / 2, sunTexture.Height / 2));
 
+            // modify this
             spriteBatch.Draw(asteroidTexture, new Vector2(screenWidthCenter, screenHeightCenter), origin: new Vector2(100, 100));
 
             spriteBatch.Draw(planetTexture, destinationRectangle:new Rectangle(Convert.ToInt32(mercuryPosition.X - mercurySize / 2) , Convert.ToInt32(mercuryPosition.Y - mercurySize / 2), mercurySize, mercurySize));
@@ -285,6 +332,20 @@ namespace Pluto
             spriteBatch.Draw(planetTexture, destinationRectangle: new Rectangle(Convert.ToInt32(plutoPosition.X - plutoSize / 2), Convert.ToInt32(plutoPosition.Y - plutoSize / 2), plutoSize, plutoSize));
 
             spriteBatch.Draw(testCircle, new Vector2(screenWidthCenter - plutoDistance, screenHeightCenter - plutoDistance));
+
+
+            // Calculate the source rectangle of the current frame.
+            Rectangle source = new Rectangle(frameIndex * frameWidth,
+
+                                               0, frameWidth, frameHeight);
+            // Calculate position and origin to draw in the center of the screen
+            Vector2 position = new Vector2(this.Window.ClientBounds.Width / 2,
+                                           meteorPositionY);
+            Vector2 origin = new Vector2(frameWidth / 2.0f, frameHeight);
+            // Draw the current frame.
+            spriteBatch.Draw(spriteSheet, position, source, Color.White, 0.0f,
+              origin, 1.0f, SpriteEffects.None, 0.0f);
+
 
             spriteBatch.End();
         }
