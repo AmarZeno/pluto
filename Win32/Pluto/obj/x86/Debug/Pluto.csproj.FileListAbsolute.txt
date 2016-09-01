@@ -107,3 +107,35 @@ C:\Users\u1077160\Documents\Rapid Prototyping\pluto\Win32\Pluto\bin\Windows\x86\
 C:\Users\u1077160\Documents\Rapid Prototyping\pluto\Win32\Pluto\bin\Windows\x86\Debug\Content\OrbitSelected.xnb
 C:\Users\u1077160\Documents\Rapid Prototyping\pluto\Win32\Pluto\bin\Windows\x86\Debug\Content\CometAnimationSmall2.xnb
 C:\Users\u1077160\Documents\Rapid Prototyping\pluto\Win32\Pluto\bin\Windows\x86\Debug\Content\TheSun.xnb
+C:\Users\zenos\Documents\rapidprototypes\pluto\Win32\Pluto\obj\x86\Debug\Pluto.exe
+C:\Users\zenos\Documents\rapidprototypes\pluto\Win32\Pluto\obj\x86\Debug\Pluto.pdb
+C:\Users\zenos\Documents\rapidprototypes\pluto\Win32\Pluto\bin\Windows\x86\Debug\Content\CometAnimationSmall2.xnb
+C:\Users\zenos\Documents\rapidprototypes\pluto\Win32\Pluto\bin\Windows\x86\Debug\Content\OrbitNormal.xnb
+C:\Users\zenos\Documents\rapidprototypes\pluto\Win32\Pluto\bin\Windows\x86\Debug\Content\OrbitSelected.xnb
+C:\Users\zenos\Documents\rapidprototypes\pluto\Win32\Pluto\bin\Windows\x86\Debug\Content\Pluto.xnb
+C:\Users\zenos\Documents\rapidprototypes\pluto\Win32\Pluto\bin\Windows\x86\Debug\Content\Pluto_Eyes.xnb
+C:\Users\zenos\Documents\rapidprototypes\pluto\Win32\Pluto\bin\Windows\x86\Debug\Content\SpaceBackground.xnb
+C:\Users\zenos\Documents\rapidprototypes\pluto\Win32\Pluto\bin\Windows\x86\Debug\Content\TheSun.xnb
+C:\Users\zenos\Documents\rapidprototypes\pluto\Win32\Pluto\bin\Windows\x86\Debug\Pluto.exe
+C:\Users\zenos\Documents\rapidprototypes\pluto\Win32\Pluto\bin\Windows\x86\Debug\Pluto.pdb
+C:\Users\zenos\Documents\rapidprototypes\pluto\Win32\Pluto\bin\Windows\x86\Debug\MonoGame.Framework.dll
+C:\Users\zenos\Documents\rapidprototypes\pluto\Win32\Pluto\bin\Windows\x86\Debug\SharpDX.MediaFoundation.dll
+C:\Users\zenos\Documents\rapidprototypes\pluto\Win32\Pluto\bin\Windows\x86\Debug\SharpDX.dll
+C:\Users\zenos\Documents\rapidprototypes\pluto\Win32\Pluto\bin\Windows\x86\Debug\SharpDX.XAudio2.dll
+C:\Users\zenos\Documents\rapidprototypes\pluto\Win32\Pluto\bin\Windows\x86\Debug\SharpDX.DXGI.dll
+C:\Users\zenos\Documents\rapidprototypes\pluto\Win32\Pluto\bin\Windows\x86\Debug\SharpDX.Direct3D11.dll
+C:\Users\zenos\Documents\rapidprototypes\pluto\Win32\Pluto\bin\Windows\x86\Debug\SharpDX.Direct2D1.dll
+C:\Users\zenos\Documents\rapidprototypes\pluto\Win32\Pluto\bin\Windows\x86\Debug\SharpDX.XInput.dll
+C:\Users\zenos\Documents\rapidprototypes\pluto\Win32\Pluto\bin\Windows\x86\Debug\SharpDX.RawInput.dll
+C:\Users\zenos\Documents\rapidprototypes\pluto\Win32\Pluto\bin\Windows\x86\Debug\SharpDX.Direct3D9.dll
+C:\Users\zenos\Documents\rapidprototypes\pluto\Win32\Pluto\bin\Windows\x86\Debug\MonoGame.Framework.xml
+C:\Users\zenos\Documents\rapidprototypes\pluto\Win32\Pluto\bin\Windows\x86\Debug\SharpDX.MediaFoundation.xml
+C:\Users\zenos\Documents\rapidprototypes\pluto\Win32\Pluto\bin\Windows\x86\Debug\SharpDX.xml
+C:\Users\zenos\Documents\rapidprototypes\pluto\Win32\Pluto\bin\Windows\x86\Debug\SharpDX.XAudio2.xml
+C:\Users\zenos\Documents\rapidprototypes\pluto\Win32\Pluto\bin\Windows\x86\Debug\SharpDX.DXGI.xml
+C:\Users\zenos\Documents\rapidprototypes\pluto\Win32\Pluto\bin\Windows\x86\Debug\SharpDX.Direct3D11.xml
+C:\Users\zenos\Documents\rapidprototypes\pluto\Win32\Pluto\bin\Windows\x86\Debug\SharpDX.Direct2D1.xml
+C:\Users\zenos\Documents\rapidprototypes\pluto\Win32\Pluto\bin\Windows\x86\Debug\SharpDX.XInput.xml
+C:\Users\zenos\Documents\rapidprototypes\pluto\Win32\Pluto\bin\Windows\x86\Debug\SharpDX.RawInput.xml
+C:\Users\zenos\Documents\rapidprototypes\pluto\Win32\Pluto\bin\Windows\x86\Debug\SharpDX.Direct3D9.xml
+C:\Users\zenos\Documents\rapidprototypes\pluto\Win32\Pluto\obj\x86\Debug\Pluto.csprojResolveAssemblyReference.cache
