@@ -449,7 +449,6 @@ namespace Pluto
             if (doesCollideAsteroid) {
                 plutoSize = plutoSize + 15;
                 meteorPositionY = 1920;
-                System.Diagnostics.Debug.Write("hellop");
                 generateRandomPosition();
             }
 
@@ -459,7 +458,25 @@ namespace Pluto
                 redMeteorPositionX = -100;
                 generateRandomRedComet();
             }
+
+            Rectangle tempNeptuneRectangle = new Rectangle((int)neptunePosition.X, (int)neptunePosition.Y, neptuneSize, neptuneSize);
+            bool doesNeptuneCollideBlueAsteroid = tempNeptuneRectangle.Intersects(blueAsteroidVirtualRectangle);
+            if (doesNeptuneCollideBlueAsteroid)
+            {
+                neptuneSize = neptuneSize + 15;
+                meteorPositionY = 1920;
+                generateRandomPosition();
+            }
             
+            
+            bool doesNeptuneCollideRedAsteroid = tempNeptuneRectangle.Intersects(redAsteroidVirtualRectangle);
+            if (doesNeptuneCollideRedAsteroid)
+            {
+                neptuneSize = neptuneSize - 15;
+                redMeteorPositionX = -100;
+                generateRandomRedComet();
+            }
+
         }
         #endregion
 
