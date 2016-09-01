@@ -102,4 +102,8 @@ C:\Users\u1077160\Documents\Rapid Prototyping\pluto\Win32\Pluto\bin\Windows\x86\
 C:\Users\u1077160\Documents\Rapid Prototyping\pluto\Win32\Pluto\bin\Windows\x86\Debug\SharpDX.RawInput.xml
 C:\Users\u1077160\Documents\Rapid Prototyping\pluto\Win32\Pluto\bin\Windows\x86\Debug\SharpDX.Direct3D9.xml
 C:\Users\u1077160\Documents\Rapid Prototyping\pluto\Win32\Pluto\obj\x86\Debug\Pluto.csprojResolveAssemblyReference.cache
-C:\Users\u1077160\Documents\Rapid Prototyping\pluto\Win32\Pluto\bin\Windows\x86\Debug\Content\CometAnimation.xnb
+C:\Users\u1077160\Documents\Rapid Prototyping\pluto\Win32\Pluto\bin\Windows\x86\Debug\Content\SpaceBackground.xnb
+C:\Users\u1077160\Documents\Rapid Prototyping\pluto\Win32\Pluto\bin\Windows\x86\Debug\Content\OrbitNormal.xnb
+C:\Users\u1077160\Documents\Rapid Prototyping\pluto\Win32\Pluto\bin\Windows\x86\Debug\Content\OrbitSelected.xnb
+C:\Users\u1077160\Documents\Rapid Prototyping\pluto\Win32\Pluto\bin\Windows\x86\Debug\Content\CometAnimationSmall2.xnb
+C:\Users\u1077160\Documents\Rapid Prototyping\pluto\Win32\Pluto\bin\Windows\x86\Debug\Content\TheSun.xnb
