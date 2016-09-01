@@ -20,6 +20,7 @@ namespace Pluto
         Texture2D planetTexture;
         Texture2D backgroundTexture;
         Texture2D earthPlanetTexture;
+        Texture2D saturnPlanetTexture;
         float sunCircularRotationOffset;
         Vector2 mercuryPosition;
         Vector2 venusPosition;
@@ -162,7 +163,8 @@ namespace Pluto
             // sunTexture = new Texture2D(graphics.GraphicsDevice, 50, 50);
             sunTexture = Content.Load<Texture2D>("TheSun");
             earthPlanetTexture = Content.Load<Texture2D>("EarthPlanetShadow");
-           // planetTexture = new Texture2D(graphics.GraphicsDevice, 10, 10);
+            saturnPlanetTexture = Content.Load<Texture2D>("Saturn_Shadow");
+            // planetTexture = new Texture2D(graphics.GraphicsDevice, 10, 10);
             planetTexture = Content.Load<Texture2D>("Pluto");
             backgroundTexture = Content.Load<Texture2D>("SpaceBackground");
             orbitNormalTexture = Content.Load<Texture2D>("OrbitNormal");
@@ -239,7 +241,7 @@ namespace Pluto
             earthSize = 40;
             marsSize = 40;
             jupiterSize = 40;
-            saturnSize = 40;
+            saturnSize = 80;
             uranusSize = 40;
             neptuneSize = 40;
             plutoSize = 40;
@@ -560,7 +562,7 @@ namespace Pluto
 
             spriteBatch.Draw(planetTexture, destinationRectangle: new Rectangle(Convert.ToInt32(jupiterPosition.X - jupiterSize / 2), Convert.ToInt32(jupiterPosition.Y - jupiterSize / 2), jupiterSize, jupiterSize));
 
-            spriteBatch.Draw(planetTexture, destinationRectangle: new Rectangle(Convert.ToInt32(saturnPosition.X - saturnSize / 2), Convert.ToInt32(saturnPosition.Y - saturnSize / 2), saturnSize, saturnSize));
+            spriteBatch.Draw(saturnPlanetTexture, destinationRectangle: new Rectangle(Convert.ToInt32(saturnPosition.X - saturnSize / 2), Convert.ToInt32(saturnPosition.Y - saturnSize / 2), saturnSize, saturnSize));
 
             spriteBatch.Draw(planetTexture, destinationRectangle: new Rectangle(Convert.ToInt32(uranusPosition.X - uranusSize / 2), Convert.ToInt32(uranusPosition.Y - uranusSize / 2), uranusSize, uranusSize));
 

@@ -146,3 +146,4 @@ C:\Users\u1077160\Documents\Rapid Prototyping\pluto\Win32\Pluto\bin\Windows\x86\
 C:\Users\u1077160\Documents\Rapid Prototyping\pluto\Win32\Pluto\bin\Windows\x86\Debug\SharpDX.Direct3D9.xml
 C:\Users\u1077160\Documents\Rapid Prototyping\pluto\Win32\Pluto\obj\x86\Debug\Pluto.exe
 C:\Users\u1077160\Documents\Rapid Prototyping\pluto\Win32\Pluto\obj\x86\Debug\Pluto.pdb
+C:\Users\u1077160\Documents\Rapid Prototyping\pluto\Win32\Pluto\bin\Windows\x86\Debug\Content\Saturn_Shadow.xnb
