@@ -97,3 +97,9 @@
 /processorParam:TextureFormat=Color
 /build:TheSun.png
 
+#begin Background_Audio.mp3
+/importer:Mp3Importer
+/processor:SongProcessor
+/processorParam:Quality=Best
+/build:Background_Audio.mp3
+

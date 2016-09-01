@@ -4,6 +4,8 @@ using Microsoft.Xna.Framework.Input;
 using System;
 using Pluto.Custom_Class;
 using System.Collections.Generic;
+using Microsoft.Xna.Framework.Audio;
+using Microsoft.Xna.Framework.Media;
 
 namespace Pluto
 {
@@ -74,6 +76,7 @@ namespace Pluto
         Rectangle blueAsteroidRectangle;
         Rectangle blueAsteroidVirtualRectangle;
         Vector2 blueAsteroidPosition;
+        Song backgroundAudio;
         // Animation variables
         // the spritesheet containing our animation frames
         Texture2D spriteSheet;
@@ -125,7 +128,7 @@ namespace Pluto
             // Create a new SpriteBatch, which can be used to draw textures.
             spriteBatch = new SpriteBatch(GraphicsDevice);
             spriteSheet = Content.Load<Texture2D>("CometAnimationSmall2");
-
+            backgroundAudio = Content.Load<Song>("Background_Audio");
             // TODO: use this.Content to load your game content here
             // sunTexture = new Texture2D(graphics.GraphicsDevice, 50, 50);
             sunTexture = Content.Load<Texture2D>("TheSun");
@@ -137,6 +140,7 @@ namespace Pluto
             orbitSelectedTexture = Content.Load<Texture2D>("OrbitSelected");
             // Planet distance calculation would require the sun texture to be initialized
             configurePlanetDistance();
+            turnAudioOn();
         }
 
         /// <summary>
@@ -228,6 +232,11 @@ namespace Pluto
            // float defaultPlutoSpeed = plutoSpeed;
            // plutoSpeed = MathHelper.Lerp(defaultPlutoSpeed, plutoSpeed + 0.005f, 0.5f);
             plutoSpeed = plutoSpeed + 0.005f;
+        }
+
+        public void turnAudioOn() {
+            MediaPlayer.Play(backgroundAudio);
+            MediaPlayer.IsRepeating = true;
         }
 
         #endregion
@@ -369,8 +378,11 @@ namespace Pluto
             plutoRectangle = new Rectangle(screenWidthCenter, screenHeightCenter, 2 * Convert.ToInt32(plutoDistance) + 130, 2 * Convert.ToInt32(plutoDistance) + 130);
             bool doesCollideAsteroid = tempPlutoRectangle.Intersects(blueAsteroidVirtualRectangle);
             if (doesCollideAsteroid) {
+                plutoSize = plutoSize + 1;
+                meteorPositionY = 1920;
                 System.Diagnostics.Debug.Write("hellop");
             }
+            
         }
         #endregion
 
