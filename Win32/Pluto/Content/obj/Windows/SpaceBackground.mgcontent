@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  <SourceFile>C:/Users/zenos/Documents/rapidprototypes/pluto/Win32/Pluto/Content/SpaceBackground.png</SourceFile>
-  <SourceTime>2016-09-01T00:19:23.6882121-06:00</SourceTime>
-  <DestFile>C:/Users/zenos/Documents/rapidprototypes/pluto/Win32/Pluto/Content/bin/Windows/SpaceBackground.xnb</DestFile>
-  <DestTime>2016-09-01T02:35:29.9340892-06:00</DestTime>
+  <SourceFile>C:/Users/u1077160/Documents/Rapid Prototyping/pluto/Win32/Pluto/Content/SpaceBackground.png</SourceFile>
+  <SourceTime>2016-08-31T19:24:27.1570576-06:00</SourceTime>
+  <DestFile>C:/Users/u1077160/Documents/Rapid Prototyping/pluto/Win32/Pluto/Content/bin/Windows/SpaceBackground.xnb</DestFile>
+  <DestTime>2016-09-01T10:54:05.9074123-06:00</DestTime>
   <Importer>TextureImporter</Importer>
   <ImporterTime>2016-03-30T00:36:08-06:00</ImporterTime>
   <Processor>TextureProcessor</Processor>

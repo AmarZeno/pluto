@@ -122,9 +122,9 @@ namespace Pluto
         public Game1()
         {
             graphics = new GraphicsDeviceManager(this);
-            //graphics.IsFullScreen = true;
-            graphics.PreferredBackBufferWidth = 1366;
-            graphics.PreferredBackBufferHeight = 768;
+            graphics.IsFullScreen = true;
+            graphics.PreferredBackBufferWidth = 1920;
+            graphics.PreferredBackBufferHeight = 1080;
             graphics.ApplyChanges();
             Content.RootDirectory = "Content";
             initializeVariables();
@@ -421,7 +421,7 @@ namespace Pluto
                 generateRandomPosition();
             }
 
-            if (redMeteorPositionX > this.Window.ClientBounds.Width) {
+            if (redMeteorPositionX > GraphicsDevice.Viewport.Width) {
                 redMeteorPositionX = -1000;
                 generateRandomRedComet();
             }
@@ -430,7 +430,7 @@ namespace Pluto
             redAsteroidPosition = new Vector2(redMeteorPositionX, redMeteorPositionY);
             redAsteroidRectangle = new Rectangle(frameIndex * frameWidth,
                                                0, frameWidth, frameHeight);
-            redAsteroidVirtualRectangle = new Rectangle((int)redAsteroidPosition.X, (int)redAsteroidPosition.Y, frameWidth, frameHeight);
+            redAsteroidVirtualRectangle = new Rectangle((int)redAsteroidPosition.X + 50, (int)redAsteroidPosition.Y, frameHeight, frameWidth);
 
             // Calculate position and origin to draw in the center of the screen
             blueAsteroidPosition = new Vector2(meteorPositionX,
@@ -441,13 +441,13 @@ namespace Pluto
                                                0, frameWidth, frameHeight);
 
             // Creating virtual rectangle to avoid animation issues
-            blueAsteroidVirtualRectangle = new Rectangle((int)blueAsteroidPosition.X, (int)blueAsteroidPosition.Y, frameWidth, frameHeight);
+            blueAsteroidVirtualRectangle = new Rectangle((int)blueAsteroidPosition.X, (int)blueAsteroidPosition.Y-120, frameWidth, 37);
 
             Rectangle tempPlutoRectangle = new Rectangle((int)plutoPosition.X, (int)plutoPosition.Y, plutoSize, plutoSize);
             plutoRectangle = new Rectangle(screenWidthCenter, screenHeightCenter, 2 * Convert.ToInt32(plutoDistance) + 130, 2 * Convert.ToInt32(plutoDistance) + 130);
             bool doesCollideAsteroid = tempPlutoRectangle.Intersects(blueAsteroidVirtualRectangle);
             if (doesCollideAsteroid) {
-                plutoSize = plutoSize + 1;
+                plutoSize = plutoSize + 15;
                 meteorPositionY = 1920;
                 System.Diagnostics.Debug.Write("hellop");
                 generateRandomPosition();
@@ -455,9 +455,9 @@ namespace Pluto
 
             bool doesRedAsteroidCollide = tempPlutoRectangle.Intersects(redAsteroidVirtualRectangle);
             if (doesRedAsteroidCollide) {
-                plutoSize = plutoSize - 1;
-                meteorPositionX = -100;
-                generateRandomPosition();
+                plutoSize = plutoSize - 15;
+                redMeteorPositionX = -100;
+                generateRandomRedComet();
             }
             
         }

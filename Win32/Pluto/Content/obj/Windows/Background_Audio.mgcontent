@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  <SourceFile>C:/Users/zenos/Documents/rapidprototypes/pluto/Win32/Pluto/Content/Background_Audio.mp3</SourceFile>
-  <SourceTime>2016-09-01T01:43:43.4516666-06:00</SourceTime>
-  <DestFile>C:/Users/zenos/Documents/rapidprototypes/pluto/Win32/Pluto/Content/bin/Windows/Background_Audio.xnb</DestFile>
-  <DestTime>2016-09-01T02:35:33.8675525-06:00</DestTime>
+  <SourceFile>C:/Users/u1077160/Documents/Rapid Prototyping/pluto/Win32/Pluto/Content/Background_Audio.mp3</SourceFile>
+  <SourceTime>2016-09-01T08:52:30.719773-06:00</SourceTime>
+  <DestFile>C:/Users/u1077160/Documents/Rapid Prototyping/pluto/Win32/Pluto/Content/bin/Windows/Background_Audio.xnb</DestFile>
+  <DestTime>2016-09-01T10:54:07.8510905-06:00</DestTime>
   <Importer>Mp3Importer</Importer>
   <ImporterTime>2016-03-30T00:36:08-06:00</ImporterTime>
   <Processor>SongProcessor</Processor>
@@ -15,6 +15,6 @@
   <Dependencies />
   <BuildAsset />
   <BuildOutput>
-    <string>C:/Users/zenos/Documents/rapidprototypes/pluto/Win32/Pluto/Content/bin/Windows/Background_Audio.wma</string>
+    <string>C:/Users/u1077160/Documents/Rapid Prototyping/pluto/Win32/Pluto/Content/bin/Windows/Background_Audio.wma</string>
   </BuildOutput>
 </PipelineBuildEvent>
