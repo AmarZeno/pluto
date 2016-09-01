@@ -16,7 +16,6 @@ namespace Pluto
     {
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
-        Texture2D asteroidTexture;
         Texture2D sunTexture;
         Texture2D planetTexture;
         Texture2D backgroundTexture;
@@ -92,6 +91,7 @@ namespace Pluto
         int frameHeight = 164;
         int frameWidth = 27;
         int meteorPositionY = 1920;
+        int meteorPositionX = 700;
         float meteorPositionFrameTime = 0.000001f;
         float meteorTime;
 
@@ -135,7 +135,6 @@ namespace Pluto
            // planetTexture = new Texture2D(graphics.GraphicsDevice, 10, 10);
             planetTexture = Content.Load<Texture2D>("Pluto");
             backgroundTexture = Content.Load<Texture2D>("SpaceBackground");
-            asteroidTexture = new Texture2D(graphics.GraphicsDevice, 20, 20);
             orbitNormalTexture = Content.Load<Texture2D>("OrbitNormal");
             orbitSelectedTexture = Content.Load<Texture2D>("OrbitSelected");
             // Planet distance calculation would require the sun texture to be initialized
@@ -152,7 +151,15 @@ namespace Pluto
             // TODO: Unload any non ContentManager content here
             sunTexture.Dispose();
             planetTexture.Dispose();
-            asteroidTexture.Dispose();
+            mercuryCurrentTexture.Dispose();
+            venusCurrentTexture.Dispose();
+            earthCurrentTexture.Dispose();
+            marsCurrentTexture.Dispose();
+            jupiterCurrentTexture.Dispose();
+            saturnCurrentTexture.Dispose();
+            uranusCurrentTexture.Dispose();
+            neptuneCurrentTexture.Dispose();
+            plutoCurrentTexture.Dispose();
         }
 
         /// <summary>
@@ -239,6 +246,12 @@ namespace Pluto
             MediaPlayer.IsRepeating = true;
         }
 
+        public void generateRandomPosition() {
+            Random rnd = new Random();
+            int randomPositionX = rnd.Next((int)(screenWidthCenter - plutoDistance), (int)(screenWidthCenter + plutoDistance));
+            meteorPositionX = randomPositionX;
+        }
+
         #endregion
 
         #region Game1 CustomUpdate
@@ -249,7 +262,7 @@ namespace Pluto
             Color[] sunColorData = new Color[50 * 50];
             for (int i = 0; i < sunColorData.Length; ++i) sunColorData[i] = Color.Chocolate;
            // sunTexture.SetData(sunColorData);
-            asteroidTexture.SetData(sunColorData);
+           // asteroidTexture.SetData(sunColorData);
 
             sunCircularRotationOffset = sunCircularRotationOffset + 0.01f;
             screenWidthCenter = GraphicsDevice.Viewport.Width / 2;
@@ -355,16 +368,18 @@ namespace Pluto
             {
                 meteorPositionY = meteorPositionY-5;
                 meteorTime = 0f;
+
+                
             }
 
             if (meteorPositionY < 0) {
                 meteorPositionY = 1920;
+                generateRandomPosition();
             }
 
-            
-
+         
             // Calculate position and origin to draw in the center of the screen
-            blueAsteroidPosition = new Vector2(this.Window.ClientBounds.Width / 2,
+            blueAsteroidPosition = new Vector2(meteorPositionX,
                                            (int)meteorPositionY);
 
             // Calculate the source rectangle of the current frame.
@@ -381,6 +396,7 @@ namespace Pluto
                 plutoSize = plutoSize + 1;
                 meteorPositionY = 1920;
                 System.Diagnostics.Debug.Write("hellop");
+                generateRandomPosition();
             }
             
         }
@@ -405,7 +421,7 @@ namespace Pluto
             //   spriteBatch.Draw(sunTexture, new Vector2(screenWidthCenter, screenHeightCenter), rotation: sunCircularRotationOffset, origin: new Vector2(sunTexture.Width / 2, sunTexture.Height / 2));
             spriteBatch.Draw(sunTexture, destinationRectangle: new Rectangle(screenWidthCenter, screenHeightCenter, 700, 700), rotation: sunCircularRotationOffset, origin: new Vector2(sunTexture.Width/2, sunTexture.Height/2));
             // modify this
-            spriteBatch.Draw(asteroidTexture, new Vector2(screenWidthCenter, screenHeightCenter), origin: new Vector2(100, 100));
+          //  spriteBatch.Draw(asteroidTexture, new Vector2(screenWidthCenter, screenHeightCenter), origin: new Vector2(100, 100));
 
             spriteBatch.Draw(planetTexture, destinationRectangle:new Rectangle(Convert.ToInt32(mercuryPosition.X - mercurySize / 2) , Convert.ToInt32(mercuryPosition.Y - mercurySize / 2), mercurySize, mercurySize));
 
