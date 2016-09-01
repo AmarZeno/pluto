@@ -141,3 +141,4 @@ C:\Users\zenos\Documents\rapidprototypes\pluto\Win32\Pluto\bin\Windows\x86\Debug
 C:\Users\zenos\Documents\rapidprototypes\pluto\Win32\Pluto\obj\x86\Debug\Pluto.csprojResolveAssemblyReference.cache
 C:\Users\zenos\Documents\rapidprototypes\pluto\Win32\Pluto\bin\Windows\x86\Debug\Content\Background_Audio.wma
 C:\Users\zenos\Documents\rapidprototypes\pluto\Win32\Pluto\bin\Windows\x86\Debug\Content\Background_Audio.xnb
+C:\Users\zenos\Documents\rapidprototypes\pluto\Win32\Pluto\bin\Windows\x86\Debug\Content\Red_Comet.xnb

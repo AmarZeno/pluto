@@ -72,6 +72,9 @@ namespace Pluto
         Texture2D uranusCurrentTexture;
         Texture2D neptuneCurrentTexture;
         Texture2D plutoCurrentTexture;
+        Rectangle redAsteroidRectangle;
+        Rectangle redAsteroidVirtualRectangle;
+        Vector2 redAsteroidPosition;
         Rectangle blueAsteroidRectangle;
         Rectangle blueAsteroidVirtualRectangle;
         Vector2 blueAsteroidPosition;
@@ -92,8 +95,29 @@ namespace Pluto
         int frameWidth = 27;
         int meteorPositionY = 1920;
         int meteorPositionX = 700;
-        float meteorPositionFrameTime = 0.000001f;
+        int redMeteorPositionX = -1000;
+        int redMeteorPositionY = 500;
+        float meteorPositionFrameTime = 0.00001f;
         float meteorTime;
+
+
+        // the spritesheet containing our animation frames
+        Texture2D redCometTexture;
+        // the elapsed amount of time the frame has been shown for
+        float redCometElapsedtime;
+        // duration of time to show each frame
+        float redCometFrameTime = 0.01f;
+        // an index of the current frame being shown
+        int redCometFrameIndex = 1;
+        // total number of frames in our spritesheet
+        const int redCometTotalFrames = 29;
+        // define the size of our animation frame
+        int redCometFrameHeight = 164;
+        int redCometFrameWidth = 27;
+        int redCometMeteorPositionY = 1920;
+        int redCometMeteorPositionX = 700;
+        float redCometMeteorPositionFrameTime = 0.000001f;
+        float redCometMeteorTime;
 
         public Game1()
         {
@@ -128,6 +152,7 @@ namespace Pluto
             // Create a new SpriteBatch, which can be used to draw textures.
             spriteBatch = new SpriteBatch(GraphicsDevice);
             spriteSheet = Content.Load<Texture2D>("CometAnimationSmall2");
+            redCometTexture = Content.Load<Texture2D>("Red_Comet");
             backgroundAudio = Content.Load<Song>("Background_Audio");
             // TODO: use this.Content to load your game content here
             // sunTexture = new Texture2D(graphics.GraphicsDevice, 50, 50);
@@ -252,6 +277,12 @@ namespace Pluto
             meteorPositionX = randomPositionX;
         }
 
+        public void generateRandomRedComet() {
+            Random rnd = new Random();
+            int randomPositionY = rnd.Next((int)(screenHeightCenter - plutoDistance), (int)(screenHeightCenter + plutoDistance));
+            redMeteorPositionY = randomPositionY;
+        }
+
         #endregion
 
         #region Game1 CustomUpdate
@@ -361,23 +392,46 @@ namespace Pluto
 
             if (frameIndex > totalFrames) frameIndex = 1;
 
+            // red comet
+            redCometElapsedtime += (float)gameTime.ElapsedGameTime.TotalSeconds;
+            while (redCometElapsedtime > redCometFrameTime)
+            {
+                // Play the next frame in the SpriteSheet
+                redCometFrameIndex++;
+
+                // reset elapsed time
+                redCometElapsedtime = 0f;
+            }
+
+            if (redCometFrameIndex > redCometTotalFrames) redCometFrameIndex = 1;
+
             // Movement
 
             meteorTime += (float)gameTime.ElapsedGameTime.TotalSeconds;
             while (meteorTime > meteorPositionFrameTime)
             {
-                meteorPositionY = meteorPositionY-5;
+                meteorPositionY = meteorPositionY - 5;
+                redMeteorPositionX = redMeteorPositionX + 4;
                 meteorTime = 0f;
-
-                
             }
 
             if (meteorPositionY < 0) {
                 meteorPositionY = 1920;
+                meteorPositionX = 0;
                 generateRandomPosition();
             }
 
-         
+            if (redMeteorPositionX > this.Window.ClientBounds.Width) {
+                redMeteorPositionX = -1000;
+                generateRandomRedComet();
+            }
+
+            // Calculate position and origin of red rectangle
+            redAsteroidPosition = new Vector2(redMeteorPositionX, redMeteorPositionY);
+            redAsteroidRectangle = new Rectangle(frameIndex * frameWidth,
+                                               0, frameWidth, frameHeight);
+            redAsteroidVirtualRectangle = new Rectangle((int)redAsteroidPosition.X, (int)redAsteroidPosition.Y, frameWidth, frameHeight);
+
             // Calculate position and origin to draw in the center of the screen
             blueAsteroidPosition = new Vector2(meteorPositionX,
                                            (int)meteorPositionY);
@@ -396,6 +450,13 @@ namespace Pluto
                 plutoSize = plutoSize + 1;
                 meteorPositionY = 1920;
                 System.Diagnostics.Debug.Write("hellop");
+                generateRandomPosition();
+            }
+
+            bool doesRedAsteroidCollide = tempPlutoRectangle.Intersects(redAsteroidVirtualRectangle);
+            if (doesRedAsteroidCollide) {
+                plutoSize = plutoSize - 1;
+                meteorPositionX = -100;
                 generateRandomPosition();
             }
             
@@ -445,8 +506,11 @@ namespace Pluto
             // Draw the current frame.
                spriteBatch.Draw(spriteSheet, blueAsteroidPosition, blueAsteroidRectangle, Color.White, 0.0f,
                origin, 1.0f, SpriteEffects.None, 0.0f);
-           // spriteBatch.Draw(spriteSheet, blueAsteroidRectangle, Color.White);
+            // spriteBatch.Draw(spriteSheet, blueAsteroidRectangle, Color.White);
 
+
+            spriteBatch.Draw(redCometTexture, redAsteroidPosition, redAsteroidRectangle, Color.White, 1.55f,
+               origin, 1.0f, SpriteEffects.None, 0.0f);
             spriteBatch.End();
         }
         #endregion
