@@ -15,7 +15,7 @@ namespace Win32Pluto.Models
         public Sprite sprite { set; get; }
         public Vector2 screenCenter { set; get; }
         public int radius { set; get; }
-        float angle { set; get; }
+        public float angle { set; get; }
 
         public Planet() {
             sprite = new Sprite();

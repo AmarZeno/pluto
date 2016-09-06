@@ -34,5 +34,35 @@ namespace Win32Pluto.Managers
                 planet.sprite.texture.Dispose();
             }
         }
+
+        public void accelerateForward(Orbit orbit) {
+            foreach (Planet planet in planetCollection) {
+                if (planet.name == "Mercury" && orbit.name == "MercuryOrbit") {
+                    planet.angle += 0.05f;
+                } else if (planet.name == "Venus" && orbit.name == "VenusOrbit") {
+                    planet.angle += 0.05f;
+                } else if (planet.name == "Earth" && orbit.name == "EarthOrbit") {
+                    planet.angle += 0.05f;
+                }
+            }
+        }
+
+        public void accelerateBackward(Orbit orbit) {
+            foreach (Planet planet in planetCollection)
+            {
+                if (planet.name == "Mercury" && orbit.name == "MercuryOrbit")
+                {
+                    planet.angle -= 0.05f;
+                }
+                else if (planet.name == "Venus" && orbit.name == "VenusOrbit")
+                {
+                    planet.angle -= 0.05f;
+                }
+                else if (planet.name == "Earth" && orbit.name == "EarthOrbit")
+                {
+                    planet.angle -= 0.05f;
+                }
+            }
+        }
     }
 }

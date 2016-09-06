@@ -61,12 +61,14 @@ namespace Win32Pluto
         {
             // Create a new SpriteBatch, which can be used to draw textures.
             spriteBatch = new SpriteBatch(GraphicsDevice);
+
+            // TODO: use this.Content to load your game content here
             LoadSpace();
             LoadSun();
+            LoadOrbits();
             LoadPlanets();
             LoadAsteroids();
             LoadAudio();
-            // TODO: use this.Content to load your game content here
         }
 
         /// <summary>
@@ -94,6 +96,7 @@ namespace Win32Pluto
 
             // TODO: Add your update logic here
             sunManager.Update();
+            orbitManager.Update(GraphicsDevice, planetManager);
             planetManager.Update(GraphicsDevice.Viewport);
             asteroidManager.Update(gameTime, GraphicsDevice, sunManager);
 
@@ -114,6 +117,7 @@ namespace Win32Pluto
 
             spaceManager.Draw(spriteBatch);
             sunManager.Draw(spriteBatch);
+            orbitManager.Draw(spriteBatch);
             planetManager.Draw(spriteBatch);
             asteroidManager.Draw(spriteBatch, sunManager);
 
@@ -157,6 +161,43 @@ namespace Win32Pluto
 
         public void LoadOrbits() {
             // Mercury
+            Orbit mercuryOrbit = new Orbit();
+            mercuryOrbit.name = "MercuryOrbit";
+            mercuryOrbit.radius = 100;
+            mercuryOrbit.defaultTexture = Content.Load<Texture2D>("Orbit_Normal");
+            mercuryOrbit.selectedTexture = Content.Load<Texture2D>("Orbit_Selected");
+            mercuryOrbit.sprite.texture = mercuryOrbit.defaultTexture;
+            mercuryOrbit.sprite.scale = new Vector2(0.22f, 0.22f);
+            mercuryOrbit.sprite.position = new Vector2(GraphicsDevice.Viewport.Bounds.Width / 2 - (mercuryOrbit.sprite.texture.Width * mercuryOrbit.sprite.scale.X) / 2, GraphicsDevice.Viewport.Bounds.Height / 2 - (mercuryOrbit.sprite.texture.Height * mercuryOrbit.sprite.scale.Y) / 2);
+            mercuryOrbit.sprite.rotation = 0f;
+            mercuryOrbit.sprite.origin = new Vector2(mercuryOrbit.sprite.texture.Width / 2, mercuryOrbit.sprite.texture.Height / 2);
+            orbitManager.Add(mercuryOrbit);
+
+            // Venus
+            Orbit venusOrbit = new Orbit();
+            venusOrbit.name = "VenusOrbit";
+            venusOrbit.radius = 200;
+            venusOrbit.defaultTexture = Content.Load<Texture2D>("Orbit_Normal");
+            venusOrbit.selectedTexture = Content.Load<Texture2D>("Orbit_Selected");
+            venusOrbit.sprite.texture = venusOrbit.defaultTexture;
+            venusOrbit.sprite.scale = new Vector2(0.43f, 0.43f);
+            venusOrbit.sprite.position = new Vector2(GraphicsDevice.Viewport.Bounds.Width / 2 - (venusOrbit.sprite.texture.Width * venusOrbit.sprite.scale.X) / 2, GraphicsDevice.Viewport.Bounds.Height / 2 - (venusOrbit.sprite.texture.Height * venusOrbit.sprite.scale.Y) / 2);
+            venusOrbit.sprite.rotation = 0f;
+            venusOrbit.sprite.origin = new Vector2(venusOrbit.sprite.texture.Width / 2, venusOrbit.sprite.texture.Height / 2);
+            orbitManager.Add(venusOrbit);
+
+            // Earth
+            Orbit earthOrbit = new Orbit();
+            earthOrbit.name = "EarthOrbit";
+            earthOrbit.radius = 300;
+            earthOrbit.defaultTexture = Content.Load<Texture2D>("Orbit_Normal");
+            earthOrbit.selectedTexture = Content.Load<Texture2D>("Orbit_Selected");
+            earthOrbit.sprite.texture = earthOrbit.defaultTexture;
+            earthOrbit.sprite.scale = new Vector2(0.64f, 0.64f);
+            earthOrbit.sprite.position = new Vector2(GraphicsDevice.Viewport.Bounds.Width / 2 - (earthOrbit.sprite.texture.Width * earthOrbit.sprite.scale.X)/ 2, GraphicsDevice.Viewport.Bounds.Height / 2 - (earthOrbit.sprite.texture.Height * earthOrbit.sprite.scale.Y) / 2);
+            earthOrbit.sprite.rotation = 0f;
+            earthOrbit.sprite.origin = new Vector2(earthOrbit.sprite.texture.Width / 2, earthOrbit.sprite.texture.Height / 2);
+            orbitManager.Add(earthOrbit);
         }
 
         public void LoadPlanets() {
