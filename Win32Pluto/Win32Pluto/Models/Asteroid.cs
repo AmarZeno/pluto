@@ -33,7 +33,6 @@ namespace Win32Pluto.Models
         public void Update(GameTime gameTime, GraphicsDevice graphicsDevice, SunManager sunManager) {
             CalculateAsteroidRectangle(gameTime);
             CalculateAsteroidPosition(gameTime, graphicsDevice.Viewport);
-            CheckAsteroidCollision(sunManager, graphicsDevice.Viewport);
 
             // Test
             //sunTexture = new Texture2D(graphicsDevice, sunManager.GetFirstObjectRect().Width, sunManager.GetFirstObjectRect().Height);
@@ -89,23 +88,6 @@ namespace Win32Pluto.Models
             Vector2 targetDestination = new Vector2(viewport.Width/2, viewport.Height/2);
             sprite.rotation = (float)DirectionHelper.FaceObject(sprite.position, targetDestination);
             sprite.position += DirectionHelper.MoveTowards(sprite.position, targetDestination, asteroidSpeed);
-        }
-
-        public void CheckAsteroidCollision(SunManager sunManager, Viewport viewport) {
-            bool didAsteroidCollideTheSun = this.GetCircle().Intersects(sunManager.GetFirstObjectCircle());
-            if (didAsteroidCollideTheSun) {
-                ResetAndRandomlyGenerateAsteroid(viewport);
-            }
-        }
-
-        public void ResetAndRandomlyGenerateAsteroid(Viewport viewport) {
-            Random r = new Random();
-            int randomValue = r.Next(0, 360);
-            var angle = randomValue;
-            int radius = Math.Max(viewport.Width/2, viewport.Height/2);
-            radius = radius + 500;
-            sprite.position = new Vector2((float)(Math.Cos(angle)*radius), (float)(Math.Sin(angle)*radius));
-            sprite.rotation = 0f;
         }
     }
 }

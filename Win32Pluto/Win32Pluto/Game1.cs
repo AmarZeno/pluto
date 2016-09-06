@@ -20,6 +20,7 @@ namespace Win32Pluto
         OrbitManager orbitManager;
         PlanetManager planetManager;
         AsteroidManager asteroidManager;
+        ScoreManager scoreManager;
         AudioManager audioManager;
 
         // Constants
@@ -35,6 +36,7 @@ namespace Win32Pluto
             orbitManager = new OrbitManager();
             planetManager = new PlanetManager();
             asteroidManager = new AsteroidManager();
+            scoreManager = new ScoreManager();
             audioManager = new AudioManager();
             Content.RootDirectory = "Content";
         }
@@ -68,6 +70,7 @@ namespace Win32Pluto
             LoadOrbits();
             LoadPlanets();
             LoadAsteroids();
+            LoadUserInterface();
             LoadAudio();
         }
 
@@ -98,7 +101,7 @@ namespace Win32Pluto
             sunManager.Update();
             orbitManager.Update(GraphicsDevice, planetManager);
             planetManager.Update(GraphicsDevice.Viewport);
-            asteroidManager.Update(gameTime, GraphicsDevice, sunManager);
+            asteroidManager.Update(gameTime, GraphicsDevice, sunManager, scoreManager);
 
             base.Update(gameTime);
         }
@@ -120,6 +123,7 @@ namespace Win32Pluto
             orbitManager.Draw(spriteBatch);
             planetManager.Draw(spriteBatch);
             asteroidManager.Draw(spriteBatch, sunManager);
+            scoreManager.Draw(spriteBatch);
 
             spriteBatch.End();
 
@@ -233,6 +237,17 @@ namespace Win32Pluto
             earth.sprite.rotation = 0f;
             earth.sprite.origin = new Vector2(earth.sprite.texture.Width / 2, earth.sprite.texture.Height / 2);
             planetManager.Add(earth);
+        }
+
+        public void LoadUserInterface() {
+            Score score = new Score();
+            score.font = Content.Load<SpriteFont>("ScoreFont");
+            score.text = "Sun Health : ";
+            score.sunHealth = 100;
+            score.position = new Vector2(100, 100);
+            score.color = Color.White;
+            score.type = "SunHealth";
+            scoreManager.Add(score);
         }
 
         public void LoadAudio() {

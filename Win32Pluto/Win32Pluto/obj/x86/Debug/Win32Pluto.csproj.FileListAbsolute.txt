@@ -89,3 +89,4 @@ C:\Users\zenos\Documents\rapidprototypes\pluto\Win32Pluto\Win32Pluto\bin\Windows
 C:\Users\zenos\Documents\rapidprototypes\pluto\Win32Pluto\Win32Pluto\obj\x86\Debug\Win32Pluto.csprojResolveAssemblyReference.cache
 C:\Users\zenos\Documents\rapidprototypes\pluto\Win32Pluto\Win32Pluto\bin\Windows\x86\Debug\Content\Orbit_Normal.xnb
 C:\Users\zenos\Documents\rapidprototypes\pluto\Win32Pluto\Win32Pluto\bin\Windows\x86\Debug\Content\Orbit_Selected.xnb
+C:\Users\zenos\Documents\rapidprototypes\pluto\Win32Pluto\Win32Pluto\bin\Windows\x86\Debug\Content\ScoreFont.xnb
