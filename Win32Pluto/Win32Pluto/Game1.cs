@@ -24,8 +24,10 @@ namespace Win32Pluto
         AudioManager audioManager;
 
         // Constants
-        const float sunScale = 0.3f;
-        const float planetScale = 0.03f;
+        const float sunScale = 1.0f;
+        const float earthScale = 0.15f;
+        const float saturnScale = 0.29f;
+        const float plutoScale = 0.035f;
 
         public Game1()
         {
@@ -100,8 +102,8 @@ namespace Win32Pluto
             // TODO: Add your update logic here
             sunManager.Update();
             orbitManager.Update(GraphicsDevice, planetManager);
-            planetManager.Update(GraphicsDevice.Viewport);
-            asteroidManager.Update(gameTime, GraphicsDevice, sunManager, scoreManager);
+            planetManager.Update(GraphicsDevice);
+            asteroidManager.Update(gameTime, GraphicsDevice, sunManager, scoreManager, planetManager);
 
             base.Update(gameTime);
         }
@@ -155,7 +157,7 @@ namespace Win32Pluto
 
         public void LoadSun() {
             Sun sun = new Sun();
-            sun.sprite.texture = Content.Load<Texture2D>("Sun");
+            sun.sprite.texture = Content.Load<Texture2D>("LifeStar");
             sun.sprite.scale = new Vector2(sunScale, sunScale);
             sun.sprite.position = new Vector2(GraphicsDevice.Viewport.Bounds.Width / 2, GraphicsDevice.Viewport.Bounds.Height / 2);
             sun.sprite.rotation = 0f;
@@ -164,79 +166,79 @@ namespace Win32Pluto
         }
 
         public void LoadOrbits() {
-            // Mercury
-            Orbit mercuryOrbit = new Orbit();
-            mercuryOrbit.name = "MercuryOrbit";
-            mercuryOrbit.radius = 100;
-            mercuryOrbit.defaultTexture = Content.Load<Texture2D>("Orbit_Normal");
-            mercuryOrbit.selectedTexture = Content.Load<Texture2D>("Orbit_Selected");
-            mercuryOrbit.sprite.texture = mercuryOrbit.defaultTexture;
-            mercuryOrbit.sprite.scale = new Vector2(0.22f, 0.22f);
-            mercuryOrbit.sprite.position = new Vector2(GraphicsDevice.Viewport.Bounds.Width / 2 - (mercuryOrbit.sprite.texture.Width * mercuryOrbit.sprite.scale.X) / 2, GraphicsDevice.Viewport.Bounds.Height / 2 - (mercuryOrbit.sprite.texture.Height * mercuryOrbit.sprite.scale.Y) / 2);
-            mercuryOrbit.sprite.rotation = 0f;
-            mercuryOrbit.sprite.origin = new Vector2(mercuryOrbit.sprite.texture.Width / 2, mercuryOrbit.sprite.texture.Height / 2);
-            orbitManager.Add(mercuryOrbit);
-
-            // Venus
-            Orbit venusOrbit = new Orbit();
-            venusOrbit.name = "VenusOrbit";
-            venusOrbit.radius = 200;
-            venusOrbit.defaultTexture = Content.Load<Texture2D>("Orbit_Normal");
-            venusOrbit.selectedTexture = Content.Load<Texture2D>("Orbit_Selected");
-            venusOrbit.sprite.texture = venusOrbit.defaultTexture;
-            venusOrbit.sprite.scale = new Vector2(0.43f, 0.43f);
-            venusOrbit.sprite.position = new Vector2(GraphicsDevice.Viewport.Bounds.Width / 2 - (venusOrbit.sprite.texture.Width * venusOrbit.sprite.scale.X) / 2, GraphicsDevice.Viewport.Bounds.Height / 2 - (venusOrbit.sprite.texture.Height * venusOrbit.sprite.scale.Y) / 2);
-            venusOrbit.sprite.rotation = 0f;
-            venusOrbit.sprite.origin = new Vector2(venusOrbit.sprite.texture.Width / 2, venusOrbit.sprite.texture.Height / 2);
-            orbitManager.Add(venusOrbit);
-
             // Earth
             Orbit earthOrbit = new Orbit();
             earthOrbit.name = "EarthOrbit";
-            earthOrbit.radius = 300;
+            earthOrbit.radius = 200;
             earthOrbit.defaultTexture = Content.Load<Texture2D>("Orbit_Normal");
             earthOrbit.selectedTexture = Content.Load<Texture2D>("Orbit_Selected");
             earthOrbit.sprite.texture = earthOrbit.defaultTexture;
-            earthOrbit.sprite.scale = new Vector2(0.64f, 0.64f);
-            earthOrbit.sprite.position = new Vector2(GraphicsDevice.Viewport.Bounds.Width / 2 - (earthOrbit.sprite.texture.Width * earthOrbit.sprite.scale.X)/ 2, GraphicsDevice.Viewport.Bounds.Height / 2 - (earthOrbit.sprite.texture.Height * earthOrbit.sprite.scale.Y) / 2);
+            earthOrbit.sprite.scale = new Vector2(0.42f, 0.42f);
+            earthOrbit.sprite.position = new Vector2(GraphicsDevice.Viewport.Bounds.Width / 2 - (earthOrbit.sprite.texture.Width * earthOrbit.sprite.scale.X) / 2, GraphicsDevice.Viewport.Bounds.Height / 2 - (earthOrbit.sprite.texture.Height * earthOrbit.sprite.scale.Y) / 2);
             earthOrbit.sprite.rotation = 0f;
             earthOrbit.sprite.origin = new Vector2(earthOrbit.sprite.texture.Width / 2, earthOrbit.sprite.texture.Height / 2);
             orbitManager.Add(earthOrbit);
+
+            // Saturn
+            Orbit saturnOrbit = new Orbit();
+            saturnOrbit.name = "SaturnOrbit";
+            saturnOrbit.radius = 300;
+            saturnOrbit.defaultTexture = Content.Load<Texture2D>("Orbit_Normal");
+            saturnOrbit.selectedTexture = Content.Load<Texture2D>("Orbit_Selected");
+            saturnOrbit.sprite.texture = saturnOrbit.defaultTexture;
+            saturnOrbit.sprite.scale = new Vector2(0.63f, 0.63f);
+            saturnOrbit.sprite.position = new Vector2(GraphicsDevice.Viewport.Bounds.Width / 2 - (saturnOrbit.sprite.texture.Width * saturnOrbit.sprite.scale.X) / 2, GraphicsDevice.Viewport.Bounds.Height / 2 - (saturnOrbit.sprite.texture.Height * saturnOrbit.sprite.scale.Y) / 2);
+            saturnOrbit.sprite.rotation = 0f;
+            saturnOrbit.sprite.origin = new Vector2(saturnOrbit.sprite.texture.Width / 2, saturnOrbit.sprite.texture.Height / 2);
+            orbitManager.Add(saturnOrbit);
+
+            // Pluto
+            Orbit plutoOrbit = new Orbit();
+            plutoOrbit.name = "PlutoOrbit";
+            plutoOrbit.radius = 400;
+            plutoOrbit.defaultTexture = Content.Load<Texture2D>("Orbit_Normal");
+            plutoOrbit.selectedTexture = Content.Load<Texture2D>("Orbit_Selected");
+            plutoOrbit.sprite.texture = earthOrbit.defaultTexture;
+            plutoOrbit.sprite.scale = new Vector2(0.84f, 0.84f);
+            plutoOrbit.sprite.position = new Vector2(GraphicsDevice.Viewport.Bounds.Width / 2 - (plutoOrbit.sprite.texture.Width * plutoOrbit.sprite.scale.X)/ 2, GraphicsDevice.Viewport.Bounds.Height / 2 - (plutoOrbit.sprite.texture.Height * plutoOrbit.sprite.scale.Y) / 2);
+            plutoOrbit.sprite.rotation = 0f;
+            plutoOrbit.sprite.origin = new Vector2(plutoOrbit.sprite.texture.Width / 2, plutoOrbit.sprite.texture.Height / 2);
+            orbitManager.Add(plutoOrbit);
         }
 
         public void LoadPlanets() {
-            // Mercury
-            Planet mercury = new Planet();
-            mercury.name = "Mercury";
-            mercury.radius = 100;
-            mercury.sprite.texture = Content.Load<Texture2D>("Pluto");
-            mercury.sprite.position = new Vector2(300, 300);
-            mercury.sprite.scale = new Vector2(planetScale, planetScale);
-            mercury.sprite.rotation = 0f;
-            mercury.sprite.origin = new Vector2(mercury.sprite.texture.Width / 2, mercury.sprite.texture.Height / 2);
-            planetManager.Add(mercury);
-
-            // Venus
-            Planet venus = new Planet();
-            venus.name = "Venus";
-            venus.radius = 200;
-            venus.sprite.texture = Content.Load<Texture2D>("Pluto");
-            venus.sprite.position = new Vector2(300, 300);
-            venus.sprite.scale = new Vector2(planetScale, planetScale);
-            venus.sprite.rotation = 0f;
-            venus.sprite.origin = new Vector2(venus.sprite.texture.Width / 2, venus.sprite.texture.Height / 2);
-            planetManager.Add(venus);
-
             // Earth
             Planet earth = new Planet();
             earth.name = "Earth";
-            earth.radius = 300;
-            earth.sprite.texture = Content.Load<Texture2D>("Pluto");
-            earth.sprite.position = new Vector2(400, 400);
-            earth.sprite.scale = new Vector2(planetScale, planetScale);
+            earth.radius = 200;
+            earth.sprite.texture = Content.Load<Texture2D>("EarthShadow");
+            earth.sprite.position = new Vector2(300, 300);
+            earth.sprite.scale = new Vector2(earthScale, earthScale);
             earth.sprite.rotation = 0f;
             earth.sprite.origin = new Vector2(earth.sprite.texture.Width / 2, earth.sprite.texture.Height / 2);
             planetManager.Add(earth);
+
+            // Saturn
+            Planet saturn = new Planet();
+            saturn.name = "Saturn";
+            saturn.radius = 300;
+            saturn.sprite.texture = Content.Load<Texture2D>("SaturnShadow");
+            saturn.sprite.position = new Vector2(300, 300);
+            saturn.sprite.scale = new Vector2(saturnScale, saturnScale);
+            saturn.sprite.rotation = 0f;
+            saturn.sprite.origin = new Vector2(saturn.sprite.texture.Width / 2, saturn.sprite.texture.Height / 2);
+            planetManager.Add(saturn);
+
+            // Pluto
+            Planet pluto = new Planet();
+            pluto.name = "Pluto";
+            pluto.radius = 400;
+            pluto.sprite.texture = Content.Load<Texture2D>("Pluto");
+            pluto.sprite.position = new Vector2(400, 400);
+            pluto.sprite.scale = new Vector2(plutoScale, plutoScale);
+            pluto.sprite.rotation = 0f;
+            pluto.sprite.origin = new Vector2(pluto.sprite.texture.Width / 2, pluto.sprite.texture.Height / 2);
+            planetManager.Add(pluto);
         }
 
         public void LoadUserInterface() {

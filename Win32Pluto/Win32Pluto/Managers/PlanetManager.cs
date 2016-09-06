@@ -1,9 +1,11 @@
-﻿using Microsoft.Xna.Framework.Graphics;
+﻿using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Win32Pluto.Extensions;
 using Win32Pluto.Models;
 
 namespace Win32Pluto.Managers
@@ -12,13 +14,24 @@ namespace Win32Pluto.Managers
     {
         List<Planet> planetCollection = new List<Planet>();
 
+        //Test
+        Texture2D planetTexture;
+
+
         public void Add(Planet planet) {
             planetCollection.Add(planet);
         }
 
-        public void Update(Viewport viewport) {
+        public void Update(GraphicsDevice graphicsDevice) {
             foreach (Planet planet in planetCollection) {
-                planet.Update(viewport);
+                planet.Update(graphicsDevice.Viewport);
+
+                // Test
+                Color[] sunColorData = new Color[planet.GetRect().Width * planet.GetRect().Height];
+                for (int i = 0; i < sunColorData.Length; ++i) sunColorData[i] = Color.Chocolate;
+
+                planetTexture = new Texture2D(graphicsDevice, planet.GetRect().Width, planet.GetRect().Height);
+                planetTexture.SetData(sunColorData);
             }
         }
 
@@ -26,6 +39,8 @@ namespace Win32Pluto.Managers
             foreach (Planet planet in planetCollection)
             {
                 planet.Draw(spriteBatch);
+                //test
+             //   spriteBatch.Draw(planetTexture, planet.GetRect(), Color.White);
             }
         }
 
@@ -37,12 +52,12 @@ namespace Win32Pluto.Managers
 
         public void accelerateForward(Orbit orbit) {
             foreach (Planet planet in planetCollection) {
-                if (planet.name == "Mercury" && orbit.name == "MercuryOrbit") {
-                    planet.angle += 0.05f;
-                } else if (planet.name == "Venus" && orbit.name == "VenusOrbit") {
-                    planet.angle += 0.05f;
-                } else if (planet.name == "Earth" && orbit.name == "EarthOrbit") {
-                    planet.angle += 0.05f;
+                if (planet.name == "Earth" && orbit.name == "EarthOrbit") {
+                    planet.angle += 0.02f;
+                } else if (planet.name == "Saturn" && orbit.name == "SaturnOrbit") {
+                    planet.angle += 0.02f;
+                } else if (planet.name == "Pluto" && orbit.name == "PlutoOrbit") {
+                    planet.angle += 0.02f;
                 }
             }
         }
@@ -50,19 +65,41 @@ namespace Win32Pluto.Managers
         public void accelerateBackward(Orbit orbit) {
             foreach (Planet planet in planetCollection)
             {
-                if (planet.name == "Mercury" && orbit.name == "MercuryOrbit")
+                if (planet.name == "Earth" && orbit.name == "EarthOrbit")
                 {
-                    planet.angle -= 0.05f;
+                    planet.angle -= 0.0017f;
                 }
-                else if (planet.name == "Venus" && orbit.name == "VenusOrbit")
+                else if (planet.name == "Saturn" && orbit.name == "SaturnOrbit")
                 {
-                    planet.angle -= 0.05f;
+                    planet.angle -= 0.0017f;
                 }
-                else if (planet.name == "Earth" && orbit.name == "EarthOrbit")
+                else if (planet.name == "Pluto" && orbit.name == "PlutoOrbit")
                 {
-                    planet.angle -= 0.05f;
+                    planet.angle -= 0.0017f;
                 }
             }
+        }
+
+        public bool CheckPlanetCollision(Asteroid asteroid) {
+            //Test
+            foreach (Planet planet in planetCollection)
+            {
+                bool didAsteroidCollide = planet.GetRect().Intersects(asteroid.GetRect());
+                if (didAsteroidCollide) {
+                    return true;
+                }
+            }
+            return false;
+
+            foreach (Planet planet in planetCollection) {
+                Circle planetCircle = planet.GetCircle();
+                Circle asteroidCircle = asteroid.GetCircle();
+                bool didAsteroidCollide = planet.GetCircle().Intersects(asteroid.GetCircle());
+                if (didAsteroidCollide) {
+                    return true;
+                }
+            }
+            return false;
         }
     }
 }

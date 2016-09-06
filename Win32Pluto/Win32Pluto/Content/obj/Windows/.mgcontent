@@ -4,13 +4,16 @@
   <Platform>Windows</Platform>
   <Config />
   <SourceFiles>
-    <File>C:/Users/zenos/Documents/rapidprototypes/pluto/Win32Pluto/Win32Pluto/Content/Sun.png</File>
-    <File>C:/Users/zenos/Documents/rapidprototypes/pluto/Win32Pluto/Win32Pluto/Content/Pluto.png</File>
-    <File>C:/Users/zenos/Documents/rapidprototypes/pluto/Win32Pluto/Win32Pluto/Content/Background_Audio.mp3</File>
-    <File>C:/Users/zenos/Documents/rapidprototypes/pluto/Win32Pluto/Win32Pluto/Content/Space.png</File>
-    <File>C:/Users/zenos/Documents/rapidprototypes/pluto/Win32Pluto/Win32Pluto/Content/Brown_Comet.png</File>
-    <File>C:/Users/zenos/Documents/rapidprototypes/pluto/Win32Pluto/Win32Pluto/Content/Orbit_Normal.png</File>
-    <File>C:/Users/zenos/Documents/rapidprototypes/pluto/Win32Pluto/Win32Pluto/Content/Orbit_Selected.png</File>
-    <File>C:/Users/zenos/Documents/rapidprototypes/pluto/Win32Pluto/Win32Pluto/Content/ScoreFont.spritefont</File>
+    <File>C:/Users/u1077160/Documents/Rapid Prototyping/pluto/Win32Pluto/Win32Pluto/Content/Sun.png</File>
+    <File>C:/Users/u1077160/Documents/Rapid Prototyping/pluto/Win32Pluto/Win32Pluto/Content/Pluto.png</File>
+    <File>C:/Users/u1077160/Documents/Rapid Prototyping/pluto/Win32Pluto/Win32Pluto/Content/Background_Audio.mp3</File>
+    <File>C:/Users/u1077160/Documents/Rapid Prototyping/pluto/Win32Pluto/Win32Pluto/Content/Space.png</File>
+    <File>C:/Users/u1077160/Documents/Rapid Prototyping/pluto/Win32Pluto/Win32Pluto/Content/Brown_Comet.png</File>
+    <File>C:/Users/u1077160/Documents/Rapid Prototyping/pluto/Win32Pluto/Win32Pluto/Content/Orbit_Normal.png</File>
+    <File>C:/Users/u1077160/Documents/Rapid Prototyping/pluto/Win32Pluto/Win32Pluto/Content/Orbit_Selected.png</File>
+    <File>C:/Users/u1077160/Documents/Rapid Prototyping/pluto/Win32Pluto/Win32Pluto/Content/ScoreFont.spritefont</File>
+    <File>C:/Users/u1077160/Documents/Rapid Prototyping/pluto/Win32Pluto/Win32Pluto/Content/LifeStar.png</File>
+    <File>C:/Users/u1077160/Documents/Rapid Prototyping/pluto/Win32Pluto/Win32Pluto/Content/EarthShadow.png</File>
+    <File>C:/Users/u1077160/Documents/Rapid Prototyping/pluto/Win32Pluto/Win32Pluto/Content/SaturnShadow.png</File>
   </SourceFiles>
 </SourceFileCollection>

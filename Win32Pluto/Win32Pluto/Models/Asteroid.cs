@@ -35,20 +35,20 @@ namespace Win32Pluto.Models
             CalculateAsteroidPosition(gameTime, graphicsDevice.Viewport);
 
             // Test
-            //sunTexture = new Texture2D(graphicsDevice, sunManager.GetFirstObjectRect().Width, sunManager.GetFirstObjectRect().Height);
-            //Color[] sunColorData = new Color[sunManager.GetFirstObjectRect().Width * sunManager.GetFirstObjectRect().Height];
-            //for (int i = 0; i < sunColorData.Length; ++i) sunColorData[i] = Color.Chocolate;
-            //sunTexture.SetData(sunColorData);
+            sunTexture = new Texture2D(graphicsDevice, sunManager.GetFirstObjectRect().Width, sunManager.GetFirstObjectRect().Height);
+            Color[] sunColorData = new Color[sunManager.GetFirstObjectRect().Width * sunManager.GetFirstObjectRect().Height];
+            for (int i = 0; i < sunColorData.Length; ++i) sunColorData[i] = Color.Chocolate;
+            sunTexture.SetData(sunColorData);
 
-           // asteroidTexture = new Texture2D(graphicsDevice, this.GetRect().Width, this.GetRect().Height);
-           // asteroidTexture.SetData(sunColorData);
+            asteroidTexture = new Texture2D(graphicsDevice, this.GetRect().Width, this.GetRect().Height);
+            asteroidTexture.SetData(sunColorData);
         }
 
         public void Draw(SpriteBatch spriteBatch, SunManager sunManager) {
             spriteBatch.Draw(sprite.texture, sprite.position, sourceRectangle: sprite.rectangle, color: Color.White, rotation: sprite.rotation, origin: sprite.origin, scale: scalingFactor);
             //test
-           // spriteBatch.Draw(sunTexture, sunManager.GetFirstObjectRect(), color: Color.White);
-           // spriteBatch.Draw(asteroidTexture, this.GetRect(), color: Color.White);
+            // spriteBatch.Draw(sunTexture, sunManager.GetFirstObjectRect(), color: Color.White);
+          //  spriteBatch.Draw(asteroidTexture, this.GetRect(), color: Color.White);
         }
 
         public Rectangle GetRect() {

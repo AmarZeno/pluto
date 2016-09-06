@@ -17,10 +17,10 @@ namespace Win32Pluto.Managers
             asteroidCollection.Add(asteroid);
         }
 
-        public void Update(GameTime gameTime, GraphicsDevice graphicsDevice, SunManager sunManager, ScoreManager scoreManager) {
+        public void Update(GameTime gameTime, GraphicsDevice graphicsDevice, SunManager sunManager, ScoreManager scoreManager, PlanetManager planetManager) {
             foreach (Asteroid asteroid in asteroidCollection) {
                 asteroid.Update(gameTime, graphicsDevice, sunManager);
-                CheckAsteroidCollision(sunManager, graphicsDevice.Viewport, asteroid, scoreManager);
+                CheckAsteroidCollision(sunManager, graphicsDevice.Viewport, asteroid, scoreManager, planetManager);
             }
         }
 
@@ -36,13 +36,18 @@ namespace Win32Pluto.Managers
             }
         }
 
-        public void CheckAsteroidCollision(SunManager sunManager, Viewport viewport, Asteroid asteroid, ScoreManager scoreManager)
+        public void CheckAsteroidCollision(SunManager sunManager, Viewport viewport, Asteroid asteroid, ScoreManager scoreManager, PlanetManager planetManager)
         {
             bool didAsteroidCollideTheSun = asteroid.GetCircle().Intersects(sunManager.GetFirstObjectCircle());
             if (didAsteroidCollideTheSun)
             {
                 ResetAndRandomlyGenerateAsteroid(viewport, asteroid);
                 scoreManager.DecreaseSunHealth();
+            }
+            // Planet collision logic
+            bool didAsteroidCollideThePlanets = planetManager.CheckPlanetCollision(asteroid);
+            if (didAsteroidCollideThePlanets) {
+                ResetAndRandomlyGenerateAsteroid(viewport, asteroid);
             }
         }
 
