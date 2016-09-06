@@ -17,6 +17,7 @@ namespace Win32Pluto
         DisplayManager displayManager;
         SpaceManager spaceManager;
         SunManager sunManager;
+        OrbitManager orbitManager;
         PlanetManager planetManager;
         AsteroidManager asteroidManager;
         AudioManager audioManager;
@@ -31,6 +32,7 @@ namespace Win32Pluto
             displayManager = new DisplayManager();
             spaceManager = new SpaceManager();
             sunManager = new SunManager();
+            orbitManager = new OrbitManager();
             planetManager = new PlanetManager();
             asteroidManager = new AsteroidManager();
             audioManager = new AudioManager();
@@ -151,6 +153,10 @@ namespace Win32Pluto
             sun.sprite.rotation = 0f;
             sun.sprite.origin = new Vector2(sun.sprite.texture.Width /2, sun.sprite.texture.Height /2);
             sunManager.Add(sun);
+        }
+
+        public void LoadOrbits() {
+            // Mercury
         }
 
         public void LoadPlanets() {
