@@ -12,7 +12,10 @@ namespace Win32Pluto.Helpers
         // Rotates one object to face another object (or position)
         public static double FaceObject(Vector2 position, Vector2 target)
         {
-            return (Math.Atan2(position.Y - target.Y, position.X - target.X) * (180 / Math.PI));
+           // return (Math.Atan2(position.Y - target.Y, position.X - target.X) * (180 / Math.PI));
+            Vector2 direction = target - position;
+            float rotation = (float)Math.Atan2(direction.Y, direction.X);
+            return rotation + (Math.PI * 0.5f);
         }
 
         // Creates a Vector2 to use when moving object from position to a target, with a given speed

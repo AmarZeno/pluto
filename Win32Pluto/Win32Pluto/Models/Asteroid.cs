@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Win32Pluto.Extensions;
 using Win32Pluto.Helpers;
 using Win32Pluto.Managers;
 
@@ -20,24 +21,45 @@ namespace Win32Pluto.Models
         float frameTime = 0.02f;
         public Vector2 scalingFactor;
 
-        public Asteroid() {
+        // Test
+        Texture2D sunTexture;
+        Texture2D asteroidTexture;
+
+        public Asteroid( ) {
             sprite = new Sprite();
             scalingFactor = new Vector2();
         }
 
-        public void Update(GameTime gameTime, Viewport viewport, SunManager sunManager) {
+        public void Update(GameTime gameTime, GraphicsDevice graphicsDevice, SunManager sunManager) {
             CalculateAsteroidRectangle(gameTime);
-            CalculateAsteroidPosition(gameTime, viewport);
-            CheckAsteroidCollision(sunManager, viewport);
+            CalculateAsteroidPosition(gameTime, graphicsDevice.Viewport);
+            CheckAsteroidCollision(sunManager, graphicsDevice.Viewport);
+
+            // Test
+            //sunTexture = new Texture2D(graphicsDevice, sunManager.GetFirstObjectRect().Width, sunManager.GetFirstObjectRect().Height);
+            //Color[] sunColorData = new Color[sunManager.GetFirstObjectRect().Width * sunManager.GetFirstObjectRect().Height];
+            //for (int i = 0; i < sunColorData.Length; ++i) sunColorData[i] = Color.Chocolate;
+            //sunTexture.SetData(sunColorData);
+
+           // asteroidTexture = new Texture2D(graphicsDevice, this.GetRect().Width, this.GetRect().Height);
+           // asteroidTexture.SetData(sunColorData);
         }
 
-        public void Draw(SpriteBatch spriteBatch) {
+        public void Draw(SpriteBatch spriteBatch, SunManager sunManager) {
             spriteBatch.Draw(sprite.texture, sprite.position, sourceRectangle: sprite.rectangle, color: Color.White, rotation: sprite.rotation, origin: sprite.origin, scale: scalingFactor);
+            //test
+           // spriteBatch.Draw(sunTexture, sunManager.GetFirstObjectRect(), color: Color.White);
+           // spriteBatch.Draw(asteroidTexture, this.GetRect(), color: Color.White);
         }
 
         public Rectangle GetRect() {
-            Rectangle asteroidRectangle = new Rectangle((int)sprite.position.X, (int)sprite.position.Y, sprite.rectangle.Width, sprite.rectangle.Height);
+            Rectangle asteroidRectangle = new Rectangle((int)(sprite.position.X - sprite.rectangle.Width/2), (int)(sprite.position.Y - sprite.rectangle.Height/2), sprite.rectangle.Width, sprite.rectangle.Height);
             return asteroidRectangle;
+        }
+
+        public Circle GetCircle() {
+            Circle circle = new Circle(new Vector2(sprite.position.X, sprite.position.Y), Math.Min(sprite.rectangle.Width / 2, sprite.rectangle.Height / 2));
+            return circle;
         }
 
         public void CalculateAsteroidRectangle(GameTime gameTime) {
@@ -65,18 +87,12 @@ namespace Win32Pluto.Models
         public void CalculateAsteroidPosition(GameTime gameTime, Viewport viewport) {
             float asteroidSpeed = 5f;
             Vector2 targetDestination = new Vector2(viewport.Width/2, viewport.Height/2);
-          //  sprite.rotation = (float)DirectionHelper.FaceObject(sprite.position, targetDestination);
+            sprite.rotation = (float)DirectionHelper.FaceObject(sprite.position, targetDestination);
             sprite.position += DirectionHelper.MoveTowards(sprite.position, targetDestination, asteroidSpeed);
-
-
-            Vector2 direction = targetDestination - sprite.position;
-            float rotation = (float)Math.Atan2(direction.Y, direction.X);
-            sprite.rotation = (float)(rotation + (Math.PI * 0.5f));
-            //double direction = (float)(Math.Atan2(target.Y - position.Y, target.X - position.X) * 180 / Math.PI);
         }
 
         public void CheckAsteroidCollision(SunManager sunManager, Viewport viewport) {
-            bool didAsteroidCollideTheSun = this.GetRect().Intersects(sunManager.GetFirstObjectRect());
+            bool didAsteroidCollideTheSun = this.GetCircle().Intersects(sunManager.GetFirstObjectCircle());
             if (didAsteroidCollideTheSun) {
                 ResetAndRandomlyGenerateAsteroid(viewport);
             }

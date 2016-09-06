@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Win32Pluto.Extensions;
 
 namespace Win32Pluto.Models
 {
@@ -27,6 +28,10 @@ namespace Win32Pluto.Models
 
         public Rectangle GetRect() {
             return new Rectangle(Convert.ToInt32(sprite.position.X - (sprite.texture.Width * sprite.scale.X)/2), Convert.ToInt32(sprite.position.Y - (sprite.texture.Height * sprite.scale.Y)/2), Convert.ToInt32(sprite.texture.Width * sprite.scale.X), Convert.ToInt32(sprite.texture.Height * sprite.scale.Y));
+        }
+
+        public Circle GetCircle() {
+            return new Circle(new Vector2(sprite.position.X, sprite.position.Y), (sprite.texture.Width * sprite.scale.X)/2);
         }
     }
 }

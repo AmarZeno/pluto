@@ -17,15 +17,15 @@ namespace Win32Pluto.Managers
             asteroidCollection.Add(asteroid);
         }
 
-        public void Update(GameTime gameTime, Viewport viewport, SunManager sunManager) {
+        public void Update(GameTime gameTime, GraphicsDevice graphicsDevice, SunManager sunManager) {
             foreach (Asteroid asteroid in asteroidCollection) {
-                asteroid.Update(gameTime, viewport, sunManager);
+                asteroid.Update(gameTime, graphicsDevice, sunManager);
             }
         }
 
-        public void Draw(SpriteBatch spriteBatch) {
+        public void Draw(SpriteBatch spriteBatch, SunManager sunManager) {
             foreach (Asteroid asteroid in asteroidCollection) {
-                asteroid.Draw(spriteBatch);
+                asteroid.Draw(spriteBatch, sunManager);
             }
         }
 

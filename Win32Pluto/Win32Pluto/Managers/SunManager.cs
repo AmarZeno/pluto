@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Win32Pluto.Extensions;
 using Win32Pluto.Models;
 
 namespace Win32Pluto.Managers
@@ -37,6 +38,10 @@ namespace Win32Pluto.Managers
 
         public Rectangle GetFirstObjectRect() {
             return sunCollection.First<Sun>().GetRect();
+        }
+
+        public Circle GetFirstObjectCircle() {
+            return sunCollection.First<Sun>().GetCircle();
         }
     }
 }

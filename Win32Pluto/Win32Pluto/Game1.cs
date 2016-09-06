@@ -93,7 +93,7 @@ namespace Win32Pluto
             // TODO: Add your update logic here
             sunManager.Update();
             planetManager.Update(GraphicsDevice.Viewport);
-            asteroidManager.Update(gameTime, GraphicsDevice.Viewport, sunManager);
+            asteroidManager.Update(gameTime, GraphicsDevice, sunManager);
 
             base.Update(gameTime);
         }
@@ -113,7 +113,7 @@ namespace Win32Pluto
             spaceManager.Draw(spriteBatch);
             sunManager.Draw(spriteBatch);
             planetManager.Draw(spriteBatch);
-            asteroidManager.Draw(spriteBatch);
+            asteroidManager.Draw(spriteBatch, sunManager);
 
             spriteBatch.End();
 
@@ -122,6 +122,7 @@ namespace Win32Pluto
 
 
         #region Game1 CustomAccessors
+
         public void LoadAsteroids() {
             Asteroid asteroid = new Asteroid();
             asteroid.sprite.texture = Content.Load<Texture2D>("Brown_Comet");
