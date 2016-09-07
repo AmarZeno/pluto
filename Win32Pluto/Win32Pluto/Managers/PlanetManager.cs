@@ -80,12 +80,13 @@ namespace Win32Pluto.Managers
             }
         }
 
-        public bool CheckPlanetCollision(Asteroid asteroid) {
+        public bool CheckPlanetCollision(Asteroid asteroid, ScoreManager scoreManager) {
             //Test
             foreach (Planet planet in planetCollection)
             {
                 bool didAsteroidCollide = planet.GetRect().Intersects(asteroid.GetRect());
                 if (didAsteroidCollide) {
+                    scoreManager.IncreaseScore(planet);
                     return true;
                 }
             }

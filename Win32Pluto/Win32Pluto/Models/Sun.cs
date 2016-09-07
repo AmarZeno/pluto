@@ -31,7 +31,7 @@ namespace Win32Pluto.Models
         }
 
         public Circle GetCircle() {
-            return new Circle(new Vector2(sprite.position.X, sprite.position.Y), (sprite.texture.Width * sprite.scale.X)/2);
+            return new Circle(new Vector2(sprite.position.X, sprite.position.Y), (sprite.texture.Width * sprite.scale.X)/2 - 80);
         }
     }
 }

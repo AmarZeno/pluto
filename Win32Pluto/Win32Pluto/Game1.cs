@@ -245,11 +245,20 @@ namespace Win32Pluto
             Score score = new Score();
             score.font = Content.Load<SpriteFont>("ScoreFont");
             score.text = "Sun Health : ";
-            score.sunHealth = 100;
+            score.value = 100;
             score.position = new Vector2(100, 100);
             score.color = Color.White;
             score.type = "SunHealth";
             scoreManager.Add(score);
+
+            Score mainScore = new Score();
+            mainScore.font = Content.Load<SpriteFont>("ScoreFont");
+            mainScore.text = "Score : ";
+            mainScore.value = 0;
+            mainScore.position = new Vector2(100, 150);
+            mainScore.color = Color.White;
+            mainScore.type = "MainScore";
+            scoreManager.Add(mainScore);
         }
 
         public void LoadAudio() {

@@ -34,3 +34,4 @@ C:\Users\u1077160\Documents\Rapid Prototyping\pluto\Win32Pluto\Win32Pluto\bin\Wi
 C:\Users\u1077160\Documents\Rapid Prototyping\pluto\Win32Pluto\Win32Pluto\bin\Windows\x86\Release\SharpDX.Direct3D9.xml
 C:\Users\u1077160\Documents\Rapid Prototyping\pluto\Win32Pluto\Win32Pluto\obj\x86\Release\Win32Pluto.exe
 C:\Users\u1077160\Documents\Rapid Prototyping\pluto\Win32Pluto\Win32Pluto\obj\x86\Release\Win32Pluto.pdb
+C:\Users\u1077160\Documents\Rapid Prototyping\pluto\Win32Pluto\Win32Pluto\obj\x86\Release\Win32Pluto.csprojResolveAssemblyReference.cache

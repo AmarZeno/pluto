@@ -11,7 +11,7 @@ namespace Win32Pluto.Models
     class Score
     {
         public SpriteFont font { set; get; }
-        public int sunHealth { set; get; }
+        public int value { set; get; }
         public Vector2 position { set; get; }
         public Color color { set; get; }
         public String text { set; get; }

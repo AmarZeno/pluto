@@ -45,7 +45,7 @@ namespace Win32Pluto.Managers
                 scoreManager.DecreaseSunHealth();
             }
             // Planet collision logic
-            bool didAsteroidCollideThePlanets = planetManager.CheckPlanetCollision(asteroid);
+            bool didAsteroidCollideThePlanets = planetManager.CheckPlanetCollision(asteroid, scoreManager);
             if (didAsteroidCollideThePlanets) {
                 ResetAndRandomlyGenerateAsteroid(viewport, asteroid);
             }

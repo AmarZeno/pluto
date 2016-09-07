@@ -18,16 +18,35 @@ namespace Win32Pluto.Managers
 
         public void Draw(SpriteBatch spriteBatch) {
             foreach (Score score in scoreCollection) {
-                spriteBatch.DrawString(score.font, score.text + score.sunHealth.ToString(), score.position, score.color);
+                spriteBatch.DrawString(score.font, score.text + score.value.ToString(), score.position, score.color);
             }
         }
 
         public void DecreaseSunHealth() {
             foreach (Score score in scoreCollection) {
                 if (score.type == "SunHealth") {
-                    if (score.sunHealth == 0)
+                    if (score.value == 0)
                         return;
-                    score.sunHealth -= 20;
+                    score.value -= 20;
+                }
+            }
+        }
+
+        public void IncreaseScore(Planet planet) {
+            int value = 0;
+            if (planet.name == "Earth") {
+                value = 25;
+            }
+            else if (planet.name == "Saturn") {
+                value = 50;
+            }
+            else if (planet.name == "Pluto") {
+                value = 100;
+            }
+
+            foreach (Score score in scoreCollection) {
+                if (score.type == "MainScore") {
+                    score.value += value;
                 }
             }
         }
