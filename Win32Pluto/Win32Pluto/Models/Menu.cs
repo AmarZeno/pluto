@@ -12,6 +12,7 @@ namespace Win32Pluto.Models
     {
         StartMenu,
         ExitMenu,
+        CreditsMenu,
     }
     class Menu
     {

@@ -126,8 +126,6 @@ namespace Win32Pluto
                     scoreManager.Update(gameTime, sunManager);
                     break;
             }
-            
-
             base.Update(gameTime);
         }
 
@@ -218,12 +216,21 @@ namespace Win32Pluto
             startMenu.sprite.origin = new Vector2(startMenu.sprite.texture.Width / 2, startMenu.sprite.texture.Height / 2);
             menuManager.Add(startMenu);
 
+            Menu creditMenu = new Menu();
+            creditMenu.type = MenuType.CreditsMenu;
+            creditMenu.defaultTexture = Content.Load<Texture2D>("Credits");
+            creditMenu.hoverTexture = Content.Load<Texture2D>("Credits_Glow");
+            creditMenu.sprite.texture = creditMenu.defaultTexture;
+            creditMenu.sprite.position = new Vector2(GraphicsDevice.Viewport.Width / 2 - creditMenu.sprite.texture.Width / 2, GraphicsDevice.Viewport.Height / 2 - creditMenu.sprite.texture.Height / 2 + 2 * startMenu.sprite.texture.Height);
+            creditMenu.sprite.origin = new Vector2(creditMenu.sprite.texture.Width / 2, creditMenu.sprite.texture.Height / 2);
+            menuManager.Add(creditMenu);
+
             Menu exitMenu = new Menu();
             exitMenu.type = MenuType.ExitMenu;
             exitMenu.defaultTexture = Content.Load<Texture2D>("Exit");
             exitMenu.hoverTexture = Content.Load<Texture2D>("Exit_Glow");
             exitMenu.sprite.texture = exitMenu.defaultTexture;
-            exitMenu.sprite.position = new Vector2(GraphicsDevice.Viewport.Width/2 - exitMenu.sprite.texture.Width/2, GraphicsDevice.Viewport.Height/2 - exitMenu.sprite.texture.Height/2 + 2*startMenu.sprite.texture.Height);
+            exitMenu.sprite.position = new Vector2(GraphicsDevice.Viewport.Width/2 - exitMenu.sprite.texture.Width/2, GraphicsDevice.Viewport.Height/2 - exitMenu.sprite.texture.Height/2 + 4*startMenu.sprite.texture.Height);
             exitMenu.sprite.origin = new Vector2(exitMenu.sprite.texture.Width / 2, exitMenu.sprite.texture.Height / 2);
             menuManager.Add(exitMenu);
         }

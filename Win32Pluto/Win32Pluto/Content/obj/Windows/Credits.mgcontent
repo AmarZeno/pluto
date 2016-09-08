@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  <SourceFile>C:/Users/u1077160/Documents/Rapid Prototyping/pluto/Win32Pluto/Win32Pluto/Content/Life_Star_6.png</SourceFile>
-  <SourceTime>2016-09-07T23:02:32.7868448-06:00</SourceTime>
-  <DestFile>C:/Users/u1077160/Documents/Rapid Prototyping/pluto/Win32Pluto/Win32Pluto/Content/bin/Windows/Life_Star_6.xnb</DestFile>
-  <DestTime>2016-09-08T03:19:17.2676223-06:00</DestTime>
+  <SourceFile>C:/Users/u1077160/Documents/Rapid Prototyping/pluto/Win32Pluto/Win32Pluto/Content/Credits.png</SourceFile>
+  <SourceTime>2016-09-08T03:10:30.3683128-06:00</SourceTime>
+  <DestFile>C:/Users/u1077160/Documents/Rapid Prototyping/pluto/Win32Pluto/Win32Pluto/Content/bin/Windows/Credits.xnb</DestFile>
+  <DestTime>2016-09-08T03:19:18.0597496-06:00</DestTime>
   <Importer>TextureImporter</Importer>
   <ImporterTime>2016-03-30T00:36:08-06:00</ImporterTime>
   <Processor>TextureProcessor</Processor>
