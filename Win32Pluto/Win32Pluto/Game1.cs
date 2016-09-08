@@ -25,10 +25,10 @@ namespace Win32Pluto
         AudioManager audioManager;
 
         // Constants
-        const float sunScale = 1.0f;
-        const float earthScale = 0.5f;
-        const float saturnScale = 0.5f;
-        const float plutoScale = 0.5f;
+        const float sunScale = 0.8f;
+        const float earthScale = 0.3f;
+        const float saturnScale = 0.3f;
+        const float plutoScale = 0.3f;
 
         public Game1()
         {
@@ -101,7 +101,7 @@ namespace Win32Pluto
                 Exit();
 
             // TODO: Add your update logic here
-            sunManager.Update();
+            sunManager.Update(gameTime);
             orbitManager.Update(GraphicsDevice, planetManager);
             planetManager.Update(GraphicsDevice, gameTime);
             asteroidManager.Update(gameTime, GraphicsDevice, sunManager, scoreManager, planetManager);
@@ -174,11 +174,12 @@ namespace Win32Pluto
 
         public void LoadSun() {
             Sun sun = new Sun();
-            sun.sprite.texture = Content.Load<Texture2D>("LifeStar");
+            sun.sprite.texture = Content.Load<Texture2D>("Life_Star");
             sun.sprite.scale = new Vector2(sunScale, sunScale);
             sun.sprite.position = new Vector2(GraphicsDevice.Viewport.Bounds.Width / 2, GraphicsDevice.Viewport.Bounds.Height / 2);
             sun.sprite.rotation = 0f;
-            sun.sprite.origin = new Vector2(sun.sprite.texture.Width /2, sun.sprite.texture.Height /2);
+            sun.sprite.origin = new Vector2((sun.sprite.texture.Width / 6)/2, (sun.sprite.texture.Height / 3)/2);
+            sun.sprite.rectangle = new Rectangle(0, 0, (sun.sprite.texture.Width / 6), sun.sprite.texture.Height / 3);
             sunManager.Add(sun);
         }
 

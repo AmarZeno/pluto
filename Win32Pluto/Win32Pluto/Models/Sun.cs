@@ -13,17 +13,28 @@ namespace Win32Pluto.Models
     {
         public Sprite sprite { set; get; }
 
+        // For spritesheet animations
+        public int frameIndexX = 1;
+        public int frameIndexY = 1;
+        public int totalFramesX = 6;
+        public int totalFramesY = 3;
+        public float elapsedTime;
+        public Vector2 scalingFactor;
+        // duration of time to show each frame
+        float frameTime = 0.18f;
+
         public Sun()
         {
             sprite = new Sprite();
         }
 
-        public void Update() {
+        public void Update(GameTime gameTime) {
             sprite.rotation = sprite.rotation + 0.01f;
+            CalculatePlasmaBallRectangle(gameTime);
         }
 
         public void Draw(SpriteBatch spriteBatch) {
-            spriteBatch.Draw(sprite.texture, sprite.position, color: Color.White, scale: sprite.scale, rotation: sprite.rotation, origin: sprite.origin);
+            spriteBatch.Draw(sprite.texture, sprite.position, sourceRectangle: sprite.rectangle, color: Color.White, scale: sprite.scale, rotation: sprite.rotation, origin: sprite.origin);
         }
 
         public Rectangle GetRect() {
@@ -31,7 +42,37 @@ namespace Win32Pluto.Models
         }
 
         public Circle GetCircle() {
-            return new Circle(new Vector2(sprite.position.X, sprite.position.Y), (sprite.texture.Width * sprite.scale.X)/2 - 80);
+            return new Circle(new Vector2(sprite.position.X, sprite.position.Y), ((sprite.texture.Width * sprite.scale.X)/ totalFramesX)/2);
+        }
+
+        public void CalculatePlasmaBallRectangle(GameTime gameTime)
+        {
+            int requiredFrameWidth = (int)(sprite.texture.Width) / totalFramesX;
+
+            // Process elapsed time
+            elapsedTime += (float)gameTime.ElapsedGameTime.TotalSeconds;
+            while (elapsedTime > frameTime)
+            {
+                frameIndexX++;
+                elapsedTime = 0f;
+                if (frameIndexX > totalFramesX)
+                {
+                    frameIndexY++;
+                }
+            }
+
+            // Reset the frames to the initial position
+            if (frameIndexX >= totalFramesX)
+            {
+                frameIndexX = 1;
+            }
+
+            if (frameIndexY > totalFramesY)
+            {
+                frameIndexY = 1;
+            }
+
+            sprite.rectangle = new Rectangle(frameIndexX * requiredFrameWidth, 0, requiredFrameWidth, (int)(sprite.texture.Height) / totalFramesY);
         }
     }
 }

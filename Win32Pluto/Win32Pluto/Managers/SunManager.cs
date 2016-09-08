@@ -18,9 +18,9 @@ namespace Win32Pluto.Managers
             sunCollection.Add(sun);
         }
 
-        public void Update() {
+        public void Update(GameTime gameTime) {
             foreach (Sun sun in sunCollection) {
-                sun.Update();
+                sun.Update(gameTime);
             }
         }
 

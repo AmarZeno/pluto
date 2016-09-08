@@ -91,7 +91,7 @@ namespace Win32Pluto.Models
                 frameIndexY = 1;
             }
 
-            sprite.rectangle = new Rectangle(frameIndexX * requiredFrameWidth, 0, requiredFrameWidth, (int)(sprite.texture.Height )/4);
+            sprite.rectangle = new Rectangle(frameIndexX * requiredFrameWidth, 0, requiredFrameWidth, (int)(sprite.texture.Height )/totalFramesY);
         }
 
     }
