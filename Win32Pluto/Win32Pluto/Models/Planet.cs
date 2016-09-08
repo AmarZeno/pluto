@@ -61,7 +61,7 @@ namespace Win32Pluto.Models
 
         public Rectangle GetRect()
         {
-            Rectangle rectangle = new Rectangle((int)sprite.position.X - (int)(sprite.texture.Width * sprite.scale.X)/2, (int)sprite.position.Y - (int)(sprite.texture.Height * sprite.scale.Y)/2, (int)(sprite.texture.Width * sprite.scale.X), (int)(sprite.texture.Height * sprite.scale.Y));
+            Rectangle rectangle = new Rectangle((int)sprite.position.X - (int)((sprite.texture.Width * sprite.scale.X)/13)/2, (int)sprite.position.Y - (int)((sprite.texture.Height * sprite.scale.Y)/4)/2, (int)((sprite.texture.Width * sprite.scale.X)/13), (int)((sprite.texture.Height * sprite.scale.Y)/4));
             return rectangle;
         }
 

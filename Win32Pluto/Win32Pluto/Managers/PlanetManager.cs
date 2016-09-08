@@ -40,7 +40,7 @@ namespace Win32Pluto.Managers
             {
                 planet.Draw(spriteBatch);
                 //test
-             //   spriteBatch.Draw(planetTexture, planet.GetRect(), Color.White);
+               // spriteBatch.Draw(planetTexture, planet.GetRect(), Color.White);
             }
         }
 
