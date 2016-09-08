@@ -44,6 +44,7 @@
     <Compile Include="Managers\AsteroidManager.cs" />
     <Compile Include="Managers\AudioManager.cs" />
     <Compile Include="Managers\DisplayManager.cs" />
+    <Compile Include="Managers\MenuManager.cs" />
     <Compile Include="Managers\OrbitManager.cs" />
     <Compile Include="Managers\PlanetManager.cs" />
     <Compile Include="Managers\ScoreManager.cs" />
@@ -51,6 +52,7 @@
     <Compile Include="Managers\SunManager.cs" />
     <Compile Include="Models\Asteroid.cs" />
     <Compile Include="Models\Audio.cs" />
+    <Compile Include="Models\Menu.cs" />
     <Compile Include="Models\Orbit.cs" />
     <Compile Include="Models\Planet.cs" />
     <Compile Include="Models\Score.cs" />

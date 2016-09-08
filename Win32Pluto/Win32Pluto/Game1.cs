@@ -8,11 +8,18 @@ using Win32Pluto.Models;
 
 namespace Win32Pluto
 {
+    enum GameState
+    {
+        MainMenu,
+        Gameplay,
+        EndOfGame,
+    }
     /// <summary>
     /// This is the main type for your game.
     /// </summary>
     public class Game1 : Game
     {
+        GameState gameState;
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
         DisplayManager displayManager;
@@ -23,6 +30,7 @@ namespace Win32Pluto
         AsteroidManager asteroidManager;
         ScoreManager scoreManager;
         AudioManager audioManager;
+        MenuManager menuManager;
 
         // Constants
         const float sunScale = 0.8f;
@@ -41,6 +49,7 @@ namespace Win32Pluto
             asteroidManager = new AsteroidManager();
             scoreManager = new ScoreManager();
             audioManager = new AudioManager();
+            menuManager = new MenuManager();
             Content.RootDirectory = "Content";
         }
 
@@ -55,6 +64,7 @@ namespace Win32Pluto
             // TODO: Add your initialization logic here
             displayManager.EnableFullScreen(graphics);
             displayManager.ShowMouseCursor(this);
+            gameState = GameState.MainMenu;
             base.Initialize();
         }
 
@@ -68,6 +78,7 @@ namespace Win32Pluto
             spriteBatch = new SpriteBatch(GraphicsDevice);
 
             // TODO: use this.Content to load your game content here
+            LoadMenus();
             LoadSpace();
             LoadSun();
             LoadOrbits();
@@ -88,6 +99,7 @@ namespace Win32Pluto
             sunManager.Dispose();
             planetManager.Dispose();
             asteroidManager.Dispose();
+            menuManager.Dispose();
         }
 
         /// <summary>
@@ -101,11 +113,20 @@ namespace Win32Pluto
                 Exit();
 
             // TODO: Add your update logic here
-            sunManager.Update(gameTime, scoreManager);
-            orbitManager.Update(GraphicsDevice, planetManager);
-            planetManager.Update(GraphicsDevice, gameTime);
-            asteroidManager.Update(gameTime, GraphicsDevice, sunManager, scoreManager, planetManager);
-            scoreManager.Update(gameTime, sunManager);
+
+            switch (gameState) {
+                case GameState.MainMenu:
+                    menuManager.Update(ref gameState, this);
+                    break;
+                case GameState.Gameplay:
+                    sunManager.Update(gameTime, scoreManager);
+                    orbitManager.Update(GraphicsDevice, planetManager);
+                    planetManager.Update(GraphicsDevice, gameTime);
+                    asteroidManager.Update(gameTime, GraphicsDevice, sunManager, scoreManager, planetManager);
+                    scoreManager.Update(gameTime, sunManager);
+                    break;
+            }
+            
 
             base.Update(gameTime);
         }
@@ -123,17 +144,30 @@ namespace Win32Pluto
             spriteBatch.Begin();
 
             spaceManager.Draw(spriteBatch);
-            sunManager.Draw(spriteBatch);
-            orbitManager.Draw(spriteBatch);
-            planetManager.Draw(spriteBatch);
-            asteroidManager.Draw(spriteBatch, sunManager);
-            scoreManager.Draw(spriteBatch);
+
+            switch (gameState)
+            {
+                case GameState.MainMenu:
+                    menuManager.Draw(spriteBatch);
+                    break;
+                case GameState.Gameplay:
+                    sunManager.Draw(spriteBatch);
+                    orbitManager.Draw(spriteBatch);
+                    planetManager.Draw(spriteBatch);
+                    asteroidManager.Draw(spriteBatch, sunManager);
+                    scoreManager.Draw(spriteBatch);
+                    break;
+            }
 
             spriteBatch.End();
 
             base.Draw(gameTime);
         }
 
+        public void Quit()
+        {
+            this.Exit();
+        }
 
         #region Game1 CustomAccessors
 
@@ -171,6 +205,27 @@ namespace Win32Pluto
             space.sprite.scale = new Vector2(1f, 1f);
             space.sprite.origin = new Vector2(space.sprite.texture.Width / 2, space.sprite.texture.Height / 2);
             spaceManager.Add(space);
+        }
+
+        public void LoadMenus()
+        {
+            Menu startMenu = new Menu();
+            startMenu.type = MenuType.StartMenu;
+            startMenu.defaultTexture = Content.Load<Texture2D>("StartGame");
+            startMenu.hoverTexture = Content.Load<Texture2D>("StartGameGlow");
+            startMenu.sprite.texture = startMenu.defaultTexture;
+            startMenu.sprite.position = new Vector2(GraphicsDevice.Viewport.Width/2 - startMenu.sprite.texture.Width/2, GraphicsDevice.Viewport.Height/2 - startMenu.sprite.texture.Height/2);
+            startMenu.sprite.origin = new Vector2(startMenu.sprite.texture.Width / 2, startMenu.sprite.texture.Height / 2);
+            menuManager.Add(startMenu);
+
+            Menu exitMenu = new Menu();
+            exitMenu.type = MenuType.ExitMenu;
+            exitMenu.defaultTexture = Content.Load<Texture2D>("Exit");
+            exitMenu.hoverTexture = Content.Load<Texture2D>("Exit_Glow");
+            exitMenu.sprite.texture = exitMenu.defaultTexture;
+            exitMenu.sprite.position = new Vector2(GraphicsDevice.Viewport.Width/2 - exitMenu.sprite.texture.Width/2, GraphicsDevice.Viewport.Height/2 - exitMenu.sprite.texture.Height/2 + 2*startMenu.sprite.texture.Height);
+            exitMenu.sprite.origin = new Vector2(exitMenu.sprite.texture.Width / 2, exitMenu.sprite.texture.Height / 2);
+            menuManager.Add(exitMenu);
         }
 
         public void LoadSun() {
