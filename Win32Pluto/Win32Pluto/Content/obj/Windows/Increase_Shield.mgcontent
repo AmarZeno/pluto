@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PipelineBuildEvent xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <SourceFile>C:/Users/u1077160/Documents/Rapid Prototyping/pluto/Win32Pluto/Win32Pluto/Content/Increase_Shield.wav</SourceFile>
+  <SourceTime>2016-09-08T07:55:35.0771881-06:00</SourceTime>
+  <DestFile>C:/Users/u1077160/Documents/Rapid Prototyping/pluto/Win32Pluto/Win32Pluto/Content/bin/Windows/Increase_Shield.xnb</DestFile>
+  <DestTime>2016-09-08T07:56:05.3919487-06:00</DestTime>
+  <Importer>WavImporter</Importer>
+  <ImporterTime>2016-03-30T00:36:08-06:00</ImporterTime>
+  <Processor>SoundEffectProcessor</Processor>
+  <ProcessorTime>2016-03-30T00:36:08-06:00</ProcessorTime>
+  <Parameters>
+    <Key>Quality</Key>
+    <Value>Best</Value>
+  </Parameters>
+  <Dependencies />
+  <BuildAsset />
+  <BuildOutput />
+</PipelineBuildEvent>

@@ -433,3 +433,21 @@
 /processorParam:TextureFormat=Color
 /build:PlayAgain_Glow.png
 
+#begin OrbitSelect.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:OrbitSelect.wav
+
+#begin Decrease_Shield.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Decrease_Shield.wav
+
+#begin Increase_Shield.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Increase_Shield.wav
+

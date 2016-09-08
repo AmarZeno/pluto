@@ -19,10 +19,10 @@ namespace Win32Pluto.Managers
             asteroidCollection.Add(asteroid);
         }
 
-        public void Update(GameTime gameTime, GraphicsDevice graphicsDevice, SunManager sunManager, ScoreManager scoreManager, PlanetManager planetManager) {
+        public void Update(GameTime gameTime, GraphicsDevice graphicsDevice, SunManager sunManager, ScoreManager scoreManager, PlanetManager planetManager, AudioManager audioManager) {
             foreach (Asteroid asteroid in asteroidCollection) {
                 asteroid.Update(gameTime, graphicsDevice, sunManager);
-                CheckAsteroidCollision(sunManager, graphicsDevice.Viewport, asteroid, scoreManager, planetManager);
+                CheckAsteroidCollision(sunManager, graphicsDevice.Viewport, asteroid, scoreManager, planetManager, audioManager);
                 RestartBlueAsteroid(asteroid, gameTime, graphicsDevice.Viewport);
             }
         }
@@ -39,7 +39,7 @@ namespace Win32Pluto.Managers
             }
         }
 
-        public void CheckAsteroidCollision(SunManager sunManager, Viewport viewport, Asteroid asteroid, ScoreManager scoreManager, PlanetManager planetManager)
+        public void CheckAsteroidCollision(SunManager sunManager, Viewport viewport, Asteroid asteroid, ScoreManager scoreManager, PlanetManager planetManager, AudioManager audioManager)
         {
             if (asteroid.type == "RedMeteor")
             {
@@ -53,6 +53,7 @@ namespace Win32Pluto.Managers
                 bool didAsteroidCollideThePlanets = planetManager.CheckPlanetCollision(asteroid, scoreManager);
                 if (didAsteroidCollideThePlanets)
                 {
+                    audioManager.playDecreaseSound();
                     ResetAndRandomlyGenerateAsteroid(viewport, asteroid);
                 }
             }
@@ -62,6 +63,7 @@ namespace Win32Pluto.Managers
                 bool didAsteroidCollideThePlanets = planetManager.CheckPlanetCollision(asteroid, scoreManager);
                 if (didAsteroidCollideThePlanets)
                 {
+                    audioManager.playIncreaseSound();
                     // Remove the asteroid from the screen
                     asteroid.sprite.position = new Vector2(3000, 3000);
                 }

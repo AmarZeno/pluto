@@ -60,3 +60,6 @@ C:\Users\u1077160\Documents\Rapid Prototyping\pluto\Win32Pluto\Win32Pluto\bin\Wi
 C:\Users\u1077160\Documents\Rapid Prototyping\pluto\Win32Pluto\Win32Pluto\bin\Windows\x86\Release\Content\ORBTitle.xnb
 C:\Users\u1077160\Documents\Rapid Prototyping\pluto\Win32Pluto\Win32Pluto\bin\Windows\x86\Release\Content\PlayAgain.xnb
 C:\Users\u1077160\Documents\Rapid Prototyping\pluto\Win32Pluto\Win32Pluto\bin\Windows\x86\Release\Content\PlayAgain_Glow.xnb
+C:\Users\u1077160\Documents\Rapid Prototyping\pluto\Win32Pluto\Win32Pluto\bin\Windows\x86\Release\Content\OrbitSelect.xnb
+C:\Users\u1077160\Documents\Rapid Prototyping\pluto\Win32Pluto\Win32Pluto\bin\Windows\x86\Release\Content\Decrease_Shield.xnb
+C:\Users\u1077160\Documents\Rapid Prototyping\pluto\Win32Pluto\Win32Pluto\bin\Windows\x86\Release\Content\Increase_Shield.xnb

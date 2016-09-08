@@ -1,4 +1,5 @@
 ﻿using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Audio;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Media;
@@ -126,9 +127,9 @@ namespace Win32Pluto
                     break;
                 case GameState.Gameplay:
                     sunManager.Update(gameTime, scoreManager);
-                    orbitManager.Update(GraphicsDevice, planetManager);
+                    orbitManager.Update(GraphicsDevice, planetManager, audioManager);
                     planetManager.Update(GraphicsDevice, gameTime);
-                    asteroidManager.Update(gameTime, GraphicsDevice, sunManager, scoreManager, planetManager);
+                    asteroidManager.Update(gameTime, GraphicsDevice, sunManager, scoreManager, planetManager, audioManager);
                     scoreManager.Update(gameTime, sunManager, planetManager, GraphicsDevice);
                     audioManager.resumeBGM();
                     break;
@@ -404,6 +405,15 @@ namespace Win32Pluto
             Audio audioBGM = new Audio();
             audioBGM.backgroundAudio = Content.Load<Song>("Background_Audio");
             audioManager.turnBGMOn(audioBGM);
+
+            SoundEffect orbitEffect = Content.Load<SoundEffect>("OrbitSelect");
+            audioManager.loadOrbitHoverSound(orbitEffect);
+
+            SoundEffect decreaseEffect = Content.Load<SoundEffect>("Decrease_Shield");
+            audioManager.loadDecreaseSound(decreaseEffect);
+
+            SoundEffect increaseEffect = Content.Load<SoundEffect>("Increase_Shield");
+            audioManager.loadIncreaseSound(increaseEffect);
         }
 
         public void Quit()
