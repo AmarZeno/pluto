@@ -15,5 +15,13 @@ namespace Win32Pluto.Managers
             MediaPlayer.Play(audioBGM.backgroundAudio);
             MediaPlayer.IsRepeating = true;
         }
+
+        public void pauseBGM() {
+            MediaPlayer.Pause();
+        }
+
+        public void resumeBGM() {
+            MediaPlayer.Resume();
+        }
     }
 }

@@ -10,13 +10,14 @@ namespace Win32Pluto.Models
 {
     enum MenuType
     {
+        Title,
         StartMenu,
         ExitMenu,
         CreditsMenu,
     }
     class Menu
     {
-        public Sprite sprite { set; get; }
+        public Sprite sprite;
         public Texture2D defaultTexture { set; get; }
         public Texture2D hoverTexture { set; get; }
 

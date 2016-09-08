@@ -122,6 +122,7 @@ namespace Win32Pluto
             switch (gameState) {
                 case GameState.MainMenu:
                     menuManager.Update(ref gameState, this);
+                    audioManager.pauseBGM();
                     break;
                 case GameState.Gameplay:
                     sunManager.Update(gameTime, scoreManager);
@@ -129,6 +130,10 @@ namespace Win32Pluto
                     planetManager.Update(GraphicsDevice, gameTime);
                     asteroidManager.Update(gameTime, GraphicsDevice, sunManager, scoreManager, planetManager);
                     scoreManager.Update(gameTime, sunManager);
+                    audioManager.resumeBGM();
+                    break;
+                case GameState.Credits:
+                    audioManager.pauseBGM();
                     break;
             }
             base.Update(gameTime);
@@ -237,6 +242,16 @@ namespace Win32Pluto
             exitMenu.sprite.position = new Vector2(GraphicsDevice.Viewport.Width/2 - exitMenu.sprite.texture.Width/2, GraphicsDevice.Viewport.Height/2 - exitMenu.sprite.texture.Height/2 + 4*startMenu.sprite.texture.Height);
             exitMenu.sprite.origin = new Vector2(exitMenu.sprite.texture.Width / 2, exitMenu.sprite.texture.Height / 2);
             menuManager.Add(exitMenu);
+
+            Menu orbTitle = new Menu();
+            orbTitle.type = MenuType.Title;
+            orbTitle.defaultTexture = Content.Load<Texture2D>("ORBTitle");
+            orbTitle.hoverTexture = Content.Load<Texture2D>("ORBTitle");
+            orbTitle.sprite.texture = exitMenu.defaultTexture;
+            orbTitle.sprite.position = new Vector2(GraphicsDevice.Viewport.Width/2  - exitMenu.sprite.texture.Width / 2 - 115, GraphicsDevice.Viewport.Height / 2 - exitMenu.sprite.texture.Height / 2 - 3 * startMenu.sprite.texture.Height);
+            orbTitle.sprite.origin = new Vector2(exitMenu.sprite.texture.Width / 2, exitMenu.sprite.texture.Height / 2);
+            menuManager.Add(orbTitle);
+
         }
 
         public void LoadCredits() {
