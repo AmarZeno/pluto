@@ -261,9 +261,9 @@ namespace Win32Pluto
         public void LoadUserInterface() {
             Score score = new Score();
             score.font = Content.Load<SpriteFont>("ScoreFont");
-            score.text = "Sun Health : ";
+            score.text = "Core Charge : ";
             score.value = 100;
-            score.position = new Vector2(100, 100);
+            score.position = new Vector2(GraphicsDevice.Viewport.Width - 400, 50);
             score.color = Color.White;
             score.type = "SunHealth";
             scoreManager.Add(score);
@@ -272,7 +272,7 @@ namespace Win32Pluto
             mainScore.font = Content.Load<SpriteFont>("ScoreFont");
             mainScore.text = "Score : ";
             mainScore.value = 0;
-            mainScore.position = new Vector2(100, 150);
+            mainScore.position = new Vector2(50, 50);
             mainScore.color = Color.White;
             mainScore.type = "MainScore";
             scoreManager.Add(mainScore);
