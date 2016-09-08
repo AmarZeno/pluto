@@ -27,7 +27,7 @@ namespace Win32Pluto.Managers
                 if (score.type == "SunHealth") {
                     if (score.value == 0)
                         return;
-                    score.value -= 20;
+                    score.value -= 10;
                 }
             }
         }
@@ -49,6 +49,15 @@ namespace Win32Pluto.Managers
                     score.value += value;
                 }
             }
+        }
+
+        public int GetCoreHealth() {
+            foreach (Score score in scoreCollection) {
+                if (score.type == "SunHealth") {
+                    return score.GetScoreValue();
+                }
+            }
+            return 0;
         }
     }
 }

@@ -101,7 +101,7 @@ namespace Win32Pluto
                 Exit();
 
             // TODO: Add your update logic here
-            sunManager.Update(gameTime);
+            sunManager.Update(gameTime, scoreManager);
             orbitManager.Update(GraphicsDevice, planetManager);
             planetManager.Update(GraphicsDevice, gameTime);
             asteroidManager.Update(gameTime, GraphicsDevice, sunManager, scoreManager, planetManager);
@@ -174,7 +174,14 @@ namespace Win32Pluto
 
         public void LoadSun() {
             Sun sun = new Sun();
-            sun.sprite.texture = Content.Load<Texture2D>("Life_Star");
+            sun.state = "Active";
+            sun.starTextureState1 = Content.Load<Texture2D>("Life_Star");
+            sun.starTextureState2 = Content.Load<Texture2D>("Life_Star_2");
+            sun.starTextureState3 = Content.Load<Texture2D>("Life_Star_3");
+            sun.starTextureState4 = Content.Load<Texture2D>("Life_Star_4");
+            sun.starTextureState5 = Content.Load<Texture2D>("Life_Star_5");
+            sun.starTextureState6 = Content.Load<Texture2D>("Life_Star_6");
+            sun.sprite.texture = sun.starTextureState1;
             sun.sprite.scale = new Vector2(sunScale, sunScale);
             sun.sprite.position = new Vector2(GraphicsDevice.Viewport.Bounds.Width / 2, GraphicsDevice.Viewport.Bounds.Height / 2);
             sun.sprite.rotation = 0f;

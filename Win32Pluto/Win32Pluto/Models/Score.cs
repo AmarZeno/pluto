@@ -16,5 +16,9 @@ namespace Win32Pluto.Models
         public Color color { set; get; }
         public String text { set; get; }
         public String type { set; get; }
+
+        public int GetScoreValue() {
+            return value;
+        }
     }
 }

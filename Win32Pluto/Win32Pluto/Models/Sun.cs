@@ -13,6 +13,15 @@ namespace Win32Pluto.Models
     {
         public Sprite sprite { set; get; }
 
+        public Texture2D starTextureState1;
+        public Texture2D starTextureState2;
+        public Texture2D starTextureState3;
+        public Texture2D starTextureState4;
+        public Texture2D starTextureState5;
+        public Texture2D starTextureState6;
+
+        public string state;
+
         // For spritesheet animations
         public int frameIndexX = 1;
         public int frameIndexY = 1;
@@ -30,6 +39,7 @@ namespace Win32Pluto.Models
 
         public void Update(GameTime gameTime) {
             sprite.rotation = sprite.rotation + 0.01f;
+            OverrideLifeStarSourceRectangle();
             CalculatePlasmaBallRectangle(gameTime);
         }
 
@@ -43,6 +53,13 @@ namespace Win32Pluto.Models
 
         public Circle GetCircle() {
             return new Circle(new Vector2(sprite.position.X, sprite.position.Y), ((sprite.texture.Width * sprite.scale.X)/ totalFramesX)/2);
+        }
+
+        public void OverrideLifeStarSourceRectangle() {
+            if (this.state == "Dead") {
+                totalFramesX = 9;
+                totalFramesY = 1;
+            }
         }
 
         public void CalculatePlasmaBallRectangle(GameTime gameTime)
@@ -61,17 +78,19 @@ namespace Win32Pluto.Models
                 }
             }
 
-            // Reset the frames to the initial position
-            if (frameIndexX >= totalFramesX)
+            // Reset the frames to the initial position for active sun
+            if (this.state == "Active")
             {
-                frameIndexX = 1;
-            }
+                if (frameIndexX >= totalFramesX)
+                {
+                    frameIndexX = 1;
+                }
 
-            if (frameIndexY > totalFramesY)
-            {
-                frameIndexY = 1;
+                if (frameIndexY > totalFramesY)
+                {
+                    frameIndexY = 1;
+                }
             }
-
             sprite.rectangle = new Rectangle(frameIndexX * requiredFrameWidth, 0, requiredFrameWidth, (int)(sprite.texture.Height) / totalFramesY);
         }
     }
