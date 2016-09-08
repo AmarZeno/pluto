@@ -26,9 +26,9 @@ namespace Win32Pluto
 
         // Constants
         const float sunScale = 1.0f;
-        const float earthScale = 0.15f;
-        const float saturnScale = 0.29f;
-        const float plutoScale = 0.035f;
+        const float earthScale = 0.5f;
+        const float saturnScale = 0.5f;
+        const float plutoScale = 0.5f;
 
         public Game1()
         {
@@ -103,7 +103,7 @@ namespace Win32Pluto
             // TODO: Add your update logic here
             sunManager.Update();
             orbitManager.Update(GraphicsDevice, planetManager);
-            planetManager.Update(GraphicsDevice);
+            planetManager.Update(GraphicsDevice, gameTime);
             asteroidManager.Update(gameTime, GraphicsDevice, sunManager, scoreManager, planetManager);
 
             base.Update(gameTime);
@@ -228,33 +228,36 @@ namespace Win32Pluto
             Planet earth = new Planet();
             earth.name = "Earth";
             earth.radius = 200;
-            earth.sprite.texture = Content.Load<Texture2D>("EarthShadow");
+            earth.sprite.texture = Content.Load<Texture2D>("PlasmaBalls");
             earth.sprite.position = new Vector2(300, 300);
             earth.sprite.scale = new Vector2(earthScale, earthScale);
             earth.sprite.rotation = 0f;
-            earth.sprite.origin = new Vector2(earth.sprite.texture.Width / 2, earth.sprite.texture.Height / 2);
+            earth.sprite.rectangle = new Rectangle(0, 0, (earth.sprite.texture.Width / 13), earth.sprite.texture.Height / 4);
+            earth.sprite.origin = new Vector2((earth.sprite.texture.Width/13) / 2, (earth.sprite.texture.Height /4)/ 2);
             planetManager.Add(earth);
 
             // Saturn
             Planet saturn = new Planet();
             saturn.name = "Saturn";
             saturn.radius = 300;
-            saturn.sprite.texture = Content.Load<Texture2D>("SaturnShadow");
+            saturn.sprite.texture = Content.Load<Texture2D>("PlasmaBalls");
             saturn.sprite.position = new Vector2(300, 300);
             saturn.sprite.scale = new Vector2(saturnScale, saturnScale);
             saturn.sprite.rotation = 0f;
-            saturn.sprite.origin = new Vector2(saturn.sprite.texture.Width / 2, saturn.sprite.texture.Height / 2);
+            saturn.sprite.rectangle = new Rectangle(0, 0, (saturn.sprite.texture.Width / 13), saturn.sprite.texture.Height / 4);
+            saturn.sprite.origin = new Vector2((saturn.sprite.texture.Width/13 )/ 2, (saturn.sprite.texture.Height /4)/ 2);
             planetManager.Add(saturn);
 
             // Pluto
             Planet pluto = new Planet();
             pluto.name = "Pluto";
             pluto.radius = 400;
-            pluto.sprite.texture = Content.Load<Texture2D>("Pluto");
+            pluto.sprite.texture = Content.Load<Texture2D>("PlasmaBalls");
             pluto.sprite.position = new Vector2(400, 400);
             pluto.sprite.scale = new Vector2(plutoScale, plutoScale);
             pluto.sprite.rotation = 0f;
-            pluto.sprite.origin = new Vector2(pluto.sprite.texture.Width / 2, pluto.sprite.texture.Height / 2);
+            pluto.sprite.rectangle = new Rectangle(0, 0,(pluto.sprite.texture.Width/13), pluto.sprite.texture.Height/4);
+            pluto.sprite.origin = new Vector2((pluto.sprite.texture.Width / 13)/ 2, (pluto.sprite.texture.Height / 4)/ 2);
             planetManager.Add(pluto);
         }
 

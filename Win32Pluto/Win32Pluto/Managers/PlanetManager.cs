@@ -22,16 +22,16 @@ namespace Win32Pluto.Managers
             planetCollection.Add(planet);
         }
 
-        public void Update(GraphicsDevice graphicsDevice) {
+        public void Update(GraphicsDevice graphicsDevice, GameTime gameTime) {
             foreach (Planet planet in planetCollection) {
-                planet.Update(graphicsDevice.Viewport);
+                planet.Update(graphicsDevice.Viewport, gameTime);
 
                 // Test
-                Color[] sunColorData = new Color[planet.GetRect().Width * planet.GetRect().Height];
-                for (int i = 0; i < sunColorData.Length; ++i) sunColorData[i] = Color.Chocolate;
+                //Color[] sunColorData = new Color[planet.GetRect().Width * planet.GetRect().Height];
+                //for (int i = 0; i < sunColorData.Length; ++i) sunColorData[i] = Color.Chocolate;
 
-                planetTexture = new Texture2D(graphicsDevice, planet.GetRect().Width, planet.GetRect().Height);
-                planetTexture.SetData(sunColorData);
+                //planetTexture = new Texture2D(graphicsDevice, planet.GetRect().Width, planet.GetRect().Height);
+                //planetTexture.SetData(sunColorData);
             }
         }
 

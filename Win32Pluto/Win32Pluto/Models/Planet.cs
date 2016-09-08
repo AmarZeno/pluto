@@ -18,11 +18,21 @@ namespace Win32Pluto.Models
         public int radius { set; get; }
         public float angle { set; get; }
 
+        // For spritesheet animations
+        public int frameIndexX = 1;
+        public int frameIndexY = 1;
+        public int totalFramesX = 13;
+        public int totalFramesY = 4;
+        public float elapsedTime;
+        public Vector2 scalingFactor;
+        // duration of time to show each frame
+        float frameTime = 0.02f;
+
         public Planet() {
             sprite = new Sprite();
         }
 
-        public void Update(Viewport viewport) {
+        public void Update(Viewport viewport, GameTime gameTime) {
             if (name == "Earth")
             {
                 angle = angle + 0.008f;
@@ -36,11 +46,12 @@ namespace Win32Pluto.Models
             }
             screenCenter = new Vector2(viewport.Width/2, viewport.Height/2);
             sprite.position = CommonUtilities.RotateAboutOrigin(screenCenter, angle, radius);
-            sprite.rotation = sprite.rotation + 0.1f;
+            sprite.rotation = sprite.rotation + 0.01f;
+            CalculatePlasmaBallRectangle(gameTime);
         }
 
         public void Draw(SpriteBatch spriteBatch) {
-            spriteBatch.Draw(sprite.texture, sprite.position, color: Color.White, scale: sprite.scale, rotation: sprite.rotation, origin: sprite.origin);
+            spriteBatch.Draw(sprite.texture, sprite.position, sourceRectangle: sprite.rectangle, color: Color.White, scale: sprite.scale, rotation: sprite.rotation, origin: sprite.origin);
         }
 
         public Circle GetCircle() {
@@ -52,6 +63,35 @@ namespace Win32Pluto.Models
         {
             Rectangle rectangle = new Rectangle((int)sprite.position.X - (int)(sprite.texture.Width * sprite.scale.X)/2, (int)sprite.position.Y - (int)(sprite.texture.Height * sprite.scale.Y)/2, (int)(sprite.texture.Width * sprite.scale.X), (int)(sprite.texture.Height * sprite.scale.Y));
             return rectangle;
+        }
+
+        public void CalculatePlasmaBallRectangle(GameTime gameTime)
+        {
+            int requiredFrameWidth = (int)(sprite.texture.Width ) / totalFramesX;
+
+            // Process elapsed time
+            elapsedTime += (float)gameTime.ElapsedGameTime.TotalSeconds;
+            while (elapsedTime > frameTime)
+            {
+                frameIndexX++;
+                elapsedTime = 0f;
+                if (frameIndexX > totalFramesX)
+                {
+                    frameIndexY++;
+                }
+            }
+
+            // Reset the frames to the initial position
+            if (frameIndexX >= totalFramesX)
+            {
+                frameIndexX = 1;
+            }
+
+            if (frameIndexY > totalFramesY) {
+                frameIndexY = 1;
+            }
+
+            sprite.rectangle = new Rectangle(frameIndexX * requiredFrameWidth, 0, requiredFrameWidth, (int)(sprite.texture.Height )/4);
         }
 
     }
