@@ -2,6 +2,7 @@
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Media;
+using System;
 using Win32Pluto.Managers;
 using Win32Pluto.Models;
 
@@ -137,12 +138,28 @@ namespace Win32Pluto
 
         public void LoadAsteroids() {
             Asteroid asteroid = new Asteroid();
+            asteroid.type = "RedMeteor";
             asteroid.sprite.texture = Content.Load<Texture2D>("RedMeteor");
             asteroid.sprite.position = new Vector2(asteroid.sprite.texture.Width / 2 , 1920);
             asteroid.sprite.rotation = 0f;
             asteroid.sprite.scale = new Vector2(1f, 1f);
             asteroid.sprite.origin = new Vector2((asteroid.sprite.texture.Width / 29)/2, asteroid.sprite.texture.Height / 2);
             asteroidManager.Add(asteroid);
+
+            Asteroid blueAsteroid = new Asteroid();
+            blueAsteroid.type = "BlueMeteor";
+            blueAsteroid.sprite.texture = Content.Load<Texture2D>("BlueMeteor");
+            blueAsteroid.sprite.position = new Vector2(GraphicsDevice.Viewport.Width/2, GraphicsDevice.Viewport.Height/2);
+            blueAsteroid.sprite.rotation = 0f;
+            blueAsteroid.sprite.scale = new Vector2(1f, 1f);
+            blueAsteroid.sprite.origin = new Vector2((blueAsteroid.sprite.texture.Width/29)/2, blueAsteroid.sprite.texture.Height/2);
+            Random r = new Random();
+            int randomValue = r.Next(0, 360);
+            var angle = randomValue;
+            int radius = Math.Max(GraphicsDevice.Viewport.Width / 2, GraphicsDevice.Viewport.Height / 2);
+            radius = radius + 500;
+            blueAsteroid.targetPosition = new Vector2((float)(Math.Cos(angle) * radius), (float)(Math.Sin(angle) * radius));
+            asteroidManager.Add(blueAsteroid);
         }
 
         public void LoadSpace() {

@@ -84,11 +84,15 @@ namespace Win32Pluto.Managers
             //Test
             foreach (Planet planet in planetCollection)
             {
-                bool didAsteroidCollide = planet.GetRect().Intersects(asteroid.GetRect());
-                if (didAsteroidCollide)
-                {
-                    scoreManager.IncreaseScore(planet);
-                    return true;
+                if (asteroid.type == "RedMeteor") {
+                    bool didAsteroidCollide = planet.GetRect().Intersects(asteroid.GetRect());
+                    if (didAsteroidCollide)
+                    {
+                        scoreManager.IncreaseScore(planet);
+                        return true;
+                    }
+                } else if (asteroid.type == "BlueMeteor") {
+
                 }
             }
             return false;
