@@ -66,5 +66,9 @@ namespace Win32Pluto.Managers
                 sun.sprite.texture = sun.starTextureState6;
             }
         }
+
+        public string getState() {
+            return sunCollection.First<Sun>().state;
+        }
     }
 }

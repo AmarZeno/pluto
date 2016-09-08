@@ -17,6 +17,9 @@ namespace Win32Pluto.Models
         public String text { set; get; }
         public String type { set; get; }
 
+        public Texture2D texture { set; get; }
+        public Vector2 scale { set; get; }
+
         public int GetScoreValue() {
             return value;
         }

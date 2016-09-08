@@ -105,6 +105,7 @@ namespace Win32Pluto
             orbitManager.Update(GraphicsDevice, planetManager);
             planetManager.Update(GraphicsDevice, gameTime);
             asteroidManager.Update(gameTime, GraphicsDevice, sunManager, scoreManager, planetManager);
+            scoreManager.Update(gameTime, sunManager);
 
             base.Update(gameTime);
         }
@@ -277,6 +278,7 @@ namespace Win32Pluto
             score.position = new Vector2(GraphicsDevice.Viewport.Width - 400, 50);
             score.color = Color.White;
             score.type = "SunHealth";
+            score.scale = new Vector2(1.0f, 1.0f);
             scoreManager.Add(score);
 
             Score mainScore = new Score();
@@ -286,7 +288,17 @@ namespace Win32Pluto
             mainScore.position = new Vector2(50, 50);
             mainScore.color = Color.White;
             mainScore.type = "MainScore";
+            mainScore.scale = new Vector2(1.0f, 1.0f);
             scoreManager.Add(mainScore);
+
+            Score gameOver = new Score();
+            gameOver.texture = Content.Load<Texture2D>("GameOver");
+
+            gameOver.position = new Vector2(GraphicsDevice.Viewport.Width / 2 - 10, GraphicsDevice.Viewport.Height / 2);
+            gameOver.scale = new Vector2(0f, 0f);
+            gameOver.color = Color.White;
+            gameOver.type = "GameOver";
+            scoreManager.Add(gameOver);
         }
 
         public void LoadAudio() {
