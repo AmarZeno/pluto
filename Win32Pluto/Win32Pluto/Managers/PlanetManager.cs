@@ -121,5 +121,12 @@ namespace Win32Pluto.Managers
             }
             return false;
         }
+
+
+        public void ResetPlanetStates() {
+            foreach (Planet planet in planetCollection) {
+                planet.sprite.scale = new Vector2(0.3f, 0.3f);
+            }
+        }
     }
 }

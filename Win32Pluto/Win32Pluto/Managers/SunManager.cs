@@ -70,5 +70,10 @@ namespace Win32Pluto.Managers
         public string getState() {
             return sunCollection.First<Sun>().state;
         }
+
+        public void ResetSunStates() {
+            sunCollection.First<Sun>().state = "Active";
+            sunCollection.First<Sun>().sprite.texture = sunCollection.First<Sun>().starTextureState1;
+        }
     }
 }

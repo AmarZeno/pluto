@@ -129,7 +129,7 @@ namespace Win32Pluto
                     orbitManager.Update(GraphicsDevice, planetManager);
                     planetManager.Update(GraphicsDevice, gameTime);
                     asteroidManager.Update(gameTime, GraphicsDevice, sunManager, scoreManager, planetManager);
-                    scoreManager.Update(gameTime, sunManager);
+                    scoreManager.Update(gameTime, sunManager, planetManager);
                     audioManager.resumeBGM();
                     break;
                 case GameState.Credits:
@@ -382,12 +382,22 @@ namespace Win32Pluto
 
             Score gameOver = new Score();
             gameOver.texture = Content.Load<Texture2D>("GameOver");
-
-            gameOver.position = new Vector2(GraphicsDevice.Viewport.Width / 2 - 10, GraphicsDevice.Viewport.Height / 2);
+            gameOver.position = new Vector2(GraphicsDevice.Viewport.Width / 2 - 10, GraphicsDevice.Viewport.Height / 2 - 100);
             gameOver.scale = new Vector2(0f, 0f);
             gameOver.color = Color.White;
             gameOver.type = "GameOver";
             scoreManager.Add(gameOver);
+
+            Score playAgain = new Score();
+            playAgain.defaultTexture = Content.Load<Texture2D>("PlayAgain");
+            playAgain.hoverTexture = Content.Load<Texture2D>("PlayAgain_Glow");
+            playAgain.texture = playAgain.defaultTexture;
+            playAgain.position = new Vector2(GraphicsDevice.Viewport.Width / 2, GraphicsDevice.Viewport.Height / 2 + 50);
+            playAgain.color = Color.White;
+            playAgain.type = "PlayAgain";
+            playAgain.scale = new Vector2(0f, 0f);
+           // playAgain.origin = new Vector2(playAgain.texture.Width / 2, playAgain.texture.Height / 2);
+            scoreManager.Add(playAgain);
         }
 
         public void LoadAudio() {
