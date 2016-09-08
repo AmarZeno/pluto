@@ -47,7 +47,10 @@ namespace Win32Pluto.Managers
 
         public void UpdateSunState(Sun sun, ScoreManager scoreManager) {
             int coreHealth = scoreManager.GetCoreHealth();
-            if (coreHealth == 80)
+            if (coreHealth == 100) {
+                sun.sprite.texture = sun.starTextureState1;
+            }
+            else if (coreHealth == 80)
             {
                 sun.sprite.texture = sun.starTextureState2;
             }
@@ -73,7 +76,7 @@ namespace Win32Pluto.Managers
 
         public void ResetSunStates() {
             sunCollection.First<Sun>().state = "Active";
-            sunCollection.First<Sun>().sprite.texture = sunCollection.First<Sun>().starTextureState1;
+           // sunCollection.First<Sun>().sprite.texture = sunCollection.First<Sun>().starTextureState1;
         }
     }
 }

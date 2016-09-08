@@ -129,7 +129,7 @@ namespace Win32Pluto
                     orbitManager.Update(GraphicsDevice, planetManager);
                     planetManager.Update(GraphicsDevice, gameTime);
                     asteroidManager.Update(gameTime, GraphicsDevice, sunManager, scoreManager, planetManager);
-                    scoreManager.Update(gameTime, sunManager, planetManager);
+                    scoreManager.Update(gameTime, sunManager, planetManager, GraphicsDevice);
                     audioManager.resumeBGM();
                     break;
                 case GameState.Credits:

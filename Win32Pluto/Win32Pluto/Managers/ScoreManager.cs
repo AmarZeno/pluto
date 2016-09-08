@@ -19,9 +19,9 @@ namespace Win32Pluto.Managers
             scoreCollection.Add(score);
         }
 
-        public void Update(GameTime gameTime, SunManager sunManager, PlanetManager planetManager) {
+        public void Update(GameTime gameTime, SunManager sunManager, PlanetManager planetManager, GraphicsDevice graphicsDevice) {
             CheckGameOver(sunManager, gameTime);
-            checkMouseActions(sunManager, planetManager);
+            checkMouseActions(sunManager, planetManager, graphicsDevice.Viewport);
         }
 
         public void Draw(SpriteBatch spriteBatch) {
@@ -78,34 +78,27 @@ namespace Win32Pluto.Managers
 
         public void CheckGameOver(SunManager sunManager, GameTime gameTime) {
             foreach (Score score in scoreCollection) {
-
-                // COme here
-                gameOverElapsedTime += (float)gameTime.ElapsedGameTime.TotalSeconds;
-                while (gameOverElapsedTime > 0.05)
-                {
-                    if (score.scale.X < 1.0f && score.scale.Y < 1.0f && score.type == "GameOver")
-                    {
-                        score.scale += new Vector2(0.03f, 0.03f);
-                        score.position = new Vector2(score.position.X - (25 * score.scale.X), score.position.Y);
-                    }
-                    else if (score.scale.X < 0.5f && score.scale.Y < 0.5f && score.type == "PlayAgain")
-                    {
-                        score.scale += new Vector2(0.015f, 0.015f);
-                        score.position = new Vector2(score.position.X - (25 * score.scale.X), score.position.Y);
-                    }
-                    gameOverElapsedTime = 0;
-                }
-
-
-
                 string sunState = sunManager.getState();
-                if (score.type == "GameOver" && sunState == "Dead") {
-                    
+                if ((score.type == "GameOver" || score.type == "PlayAgain") && sunState == "Dead") {
+                    gameOverElapsedTime += (float)gameTime.ElapsedGameTime.TotalSeconds;
+                    while (gameOverElapsedTime > 0.05)
+                    {
+                        if (score.scale.X < 1.0f && score.scale.Y < 1.0f && score.type == "GameOver")
+                        {
+                            score.scale += new Vector2(0.03f, 0.03f);
+                            score.position = new Vector2(score.position.X - (25 * score.scale.X), score.position.Y);
+                        }else if (score.scale.X < 0.5f && score.scale.Y < 0.5f && score.type == "PlayAgain")
+                        {
+                            score.scale += new Vector2(0.015f, 0.015f);
+                            score.position = new Vector2(score.position.X - (25 * score.scale.X), score.position.Y);
+                        }
+                        gameOverElapsedTime = 0;
+                    }
                 }
             }
         }
 
-        public void checkMouseActions(SunManager sunManager, PlanetManager planetManager)
+        public void checkMouseActions(SunManager sunManager, PlanetManager planetManager, Viewport viewport)
         {
           //  if (sunManager.getState().Equals("Dead"))
           //  {
@@ -123,7 +116,7 @@ namespace Win32Pluto.Managers
                             if (mouseState.LeftButton == ButtonState.Pressed)
                             {
                                 Console.WriteLine("Left Button Pressed");
-                                RestartGame(sunManager, planetManager);
+                                RestartGame(sunManager, planetManager, viewport);
                                 // gameState = GameState.Gameplay;
                             }
                         }
@@ -136,20 +129,30 @@ namespace Win32Pluto.Managers
            // }
         }
 
-        public void ResetScore() {
+        public void ResetScore(Viewport viewport) {
             foreach (Score score in scoreCollection) {
                 if (score.type == "MainScore")
                 {
                     score.value = 0;
                 }
-                else if (score.type == "SunHealth") {
-                    score.value = 0;
+                else if (score.type == "SunHealth")
+                {
+                    score.value = 100;
+                }
+                else if (score.type == "GameOver")
+                {
+                    score.scale = new Vector2(0f, 0f);
+                    score.position = new Vector2(viewport.Width / 2 - 10, viewport.Height / 2 - 100);
+                }
+                else if (score.type == "PlayAgain") {
+                    score.scale = new Vector2(0f, 0f);
+                    score.position = new Vector2(viewport.Width / 2, viewport.Height / 2 + 50);
                 }
             }
         }
 
-        public void RestartGame(SunManager sunManager, PlanetManager planetManager) {
-            this.ResetScore();
+        public void RestartGame(SunManager sunManager, PlanetManager planetManager, Viewport viewport) {
+            this.ResetScore(viewport);
             sunManager.ResetSunStates();
             planetManager.ResetPlanetStates();
         }

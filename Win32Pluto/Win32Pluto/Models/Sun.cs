@@ -56,9 +56,14 @@ namespace Win32Pluto.Models
         }
 
         public void OverrideLifeStarSourceRectangle() {
-            if (this.state == "Dead") {
+            if (this.state == "Dead")
+            {
                 totalFramesX = 9;
                 totalFramesY = 1;
+            }
+            else {
+                totalFramesX = 6;
+                totalFramesY = 3;
             }
         }
 
