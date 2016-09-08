@@ -19,14 +19,14 @@ namespace Win32Pluto.Models
         public float angle { set; get; }
 
         // For spritesheet animations
-        public int frameIndexX = 1;
-        public int frameIndexY = 1;
+        public int frameIndexX = 0;
+        public int frameIndexY = 0;
         public int totalFramesX = 13;
         public int totalFramesY = 4;
         public float elapsedTime;
         public Vector2 scalingFactor;
         // duration of time to show each frame
-        float frameTime = 0.02f;
+        float frameTime = 0.04f;
 
         public Planet() {
             sprite = new Sprite();
@@ -68,7 +68,7 @@ namespace Win32Pluto.Models
         public void CalculatePlasmaBallRectangle(GameTime gameTime)
         {
             int requiredFrameWidth = (int)(sprite.texture.Width ) / totalFramesX;
-
+            int requiredFrameHeight = (int)(sprite.texture.Height) / totalFramesY;
             // Process elapsed time
             elapsedTime += (float)gameTime.ElapsedGameTime.TotalSeconds;
             while (elapsedTime > frameTime)
@@ -87,11 +87,11 @@ namespace Win32Pluto.Models
                 frameIndexX = 1;
             }
 
-            if (frameIndexY > totalFramesY) {
-                frameIndexY = 1;
+            if (frameIndexY >= totalFramesY) {
+                frameIndexY = 0;
             }
 
-            sprite.rectangle = new Rectangle(frameIndexX * requiredFrameWidth, 0, requiredFrameWidth, (int)(sprite.texture.Height )/totalFramesY);
+            sprite.rectangle = new Rectangle(frameIndexX * requiredFrameWidth, frameIndexY* requiredFrameHeight, requiredFrameWidth, requiredFrameHeight);
         }
 
     }

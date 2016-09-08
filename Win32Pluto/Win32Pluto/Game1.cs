@@ -38,7 +38,7 @@ namespace Win32Pluto
         const float sunScale = 0.8f;
         const float earthScale = 0.3f;
         const float saturnScale = 0.3f;
-        const float plutoScale = 0.3f;
+        const float plutoScale = 0.6f;
 
         public Game1()
         {
