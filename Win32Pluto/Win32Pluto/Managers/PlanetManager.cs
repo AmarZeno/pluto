@@ -91,9 +91,19 @@ namespace Win32Pluto.Managers
                     if (asteroid.type == "RedMeteor")
                     {
                         scoreManager.IncreaseScore(planet);
+                        // Reduce planet size
+                        if (planet.sprite.scale.X != 0 && planet.sprite.scale.Y != 0)
+                        {
+                            planet.sprite.scale -= new Vector2(0.1f, 0.1f);
+                        }
                     }
-                    else if (asteroid.type == "BlueMeteor") {
+                    else if (asteroid.type == "BlueMeteor")
+                    {
                         // Do nothing
+                        if (planet.sprite.scale.X != 0.6 && planet.sprite.scale.Y != 0.6)
+                        {
+                            planet.sprite.scale += new Vector2(0.1f, 0.1f);
+                        }
                     }
                     return true;
                 }
