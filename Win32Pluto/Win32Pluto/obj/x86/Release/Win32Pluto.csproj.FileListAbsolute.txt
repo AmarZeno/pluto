@@ -3,8 +3,6 @@ C:\Users\u1077160\Documents\Rapid Prototyping\pluto\Win32Pluto\Win32Pluto\bin\Wi
 C:\Users\u1077160\Documents\Rapid Prototyping\pluto\Win32Pluto\Win32Pluto\bin\Windows\x86\Release\Content\Brown_Comet.xnb
 C:\Users\u1077160\Documents\Rapid Prototyping\pluto\Win32Pluto\Win32Pluto\bin\Windows\x86\Release\Content\EarthShadow.xnb
 C:\Users\u1077160\Documents\Rapid Prototyping\pluto\Win32Pluto\Win32Pluto\bin\Windows\x86\Release\Content\LifeStar.xnb
-C:\Users\u1077160\Documents\Rapid Prototyping\pluto\Win32Pluto\Win32Pluto\bin\Windows\x86\Release\Content\Orbit_Normal.xnb
-C:\Users\u1077160\Documents\Rapid Prototyping\pluto\Win32Pluto\Win32Pluto\bin\Windows\x86\Release\Content\Orbit_Selected.xnb
 C:\Users\u1077160\Documents\Rapid Prototyping\pluto\Win32Pluto\Win32Pluto\bin\Windows\x86\Release\Content\Pluto.xnb
 C:\Users\u1077160\Documents\Rapid Prototyping\pluto\Win32Pluto\Win32Pluto\bin\Windows\x86\Release\Content\SaturnShadow.xnb
 C:\Users\u1077160\Documents\Rapid Prototyping\pluto\Win32Pluto\Win32Pluto\bin\Windows\x86\Release\Content\ScoreFont.xnb
@@ -35,3 +33,11 @@ C:\Users\u1077160\Documents\Rapid Prototyping\pluto\Win32Pluto\Win32Pluto\bin\Wi
 C:\Users\u1077160\Documents\Rapid Prototyping\pluto\Win32Pluto\Win32Pluto\obj\x86\Release\Win32Pluto.exe
 C:\Users\u1077160\Documents\Rapid Prototyping\pluto\Win32Pluto\Win32Pluto\obj\x86\Release\Win32Pluto.pdb
 C:\Users\u1077160\Documents\Rapid Prototyping\pluto\Win32Pluto\Win32Pluto\obj\x86\Release\Win32Pluto.csprojResolveAssemblyReference.cache
+C:\Users\u1077160\Documents\Rapid Prototyping\pluto\Win32Pluto\Win32Pluto\bin\Windows\x86\Release\Content\Orbit1_Normal.xnb
+C:\Users\u1077160\Documents\Rapid Prototyping\pluto\Win32Pluto\Win32Pluto\bin\Windows\x86\Release\Content\Orbit1_Selected.xnb
+C:\Users\u1077160\Documents\Rapid Prototyping\pluto\Win32Pluto\Win32Pluto\bin\Windows\x86\Release\Content\Orbit2_Normal.xnb
+C:\Users\u1077160\Documents\Rapid Prototyping\pluto\Win32Pluto\Win32Pluto\bin\Windows\x86\Release\Content\Orbit2_Selected.xnb
+C:\Users\u1077160\Documents\Rapid Prototyping\pluto\Win32Pluto\Win32Pluto\bin\Windows\x86\Release\Content\Orbit3_Normal.xnb
+C:\Users\u1077160\Documents\Rapid Prototyping\pluto\Win32Pluto\Win32Pluto\bin\Windows\x86\Release\Content\Orbit3_Selected.xnb
+C:\Users\u1077160\Documents\Rapid Prototyping\pluto\Win32Pluto\Win32Pluto\bin\Windows\x86\Release\Content\Orbit4_Normal.xnb
+C:\Users\u1077160\Documents\Rapid Prototyping\pluto\Win32Pluto\Win32Pluto\bin\Windows\x86\Release\Content\Orbit4_Selected.xnb
