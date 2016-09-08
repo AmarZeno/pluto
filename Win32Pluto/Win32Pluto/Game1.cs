@@ -164,7 +164,7 @@ namespace Win32Pluto
 
         public void LoadSpace() {
             Space space = new Space();
-            space.sprite.texture = Content.Load<Texture2D>("Space");
+            space.sprite.texture = Content.Load<Texture2D>("PlasmaBackground");
             space.sprite.position = new Vector2(0, 0);
             space.sprite.rotation = 0f;
             space.sprite.scale = new Vector2(1f, 1f);
