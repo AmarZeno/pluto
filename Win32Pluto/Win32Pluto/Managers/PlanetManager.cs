@@ -85,7 +85,8 @@ namespace Win32Pluto.Managers
             foreach (Planet planet in planetCollection)
             {
                 bool didAsteroidCollide = planet.GetRect().Intersects(asteroid.GetRect());
-                if (didAsteroidCollide) {
+                if (didAsteroidCollide)
+                {
                     scoreManager.IncreaseScore(planet);
                     return true;
                 }

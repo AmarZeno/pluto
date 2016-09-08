@@ -41,3 +41,4 @@ C:\Users\u1077160\Documents\Rapid Prototyping\pluto\Win32Pluto\Win32Pluto\bin\Wi
 C:\Users\u1077160\Documents\Rapid Prototyping\pluto\Win32Pluto\Win32Pluto\bin\Windows\x86\Release\Content\Orbit3_Selected.xnb
 C:\Users\u1077160\Documents\Rapid Prototyping\pluto\Win32Pluto\Win32Pluto\bin\Windows\x86\Release\Content\Orbit4_Normal.xnb
 C:\Users\u1077160\Documents\Rapid Prototyping\pluto\Win32Pluto\Win32Pluto\bin\Windows\x86\Release\Content\Orbit4_Selected.xnb
+C:\Users\u1077160\Documents\Rapid Prototyping\pluto\Win32Pluto\Win32Pluto\bin\Windows\x86\Release\Content\RedMeteor.xnb

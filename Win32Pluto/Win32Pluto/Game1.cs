@@ -137,7 +137,7 @@ namespace Win32Pluto
 
         public void LoadAsteroids() {
             Asteroid asteroid = new Asteroid();
-            asteroid.sprite.texture = Content.Load<Texture2D>("Brown_Comet");
+            asteroid.sprite.texture = Content.Load<Texture2D>("RedMeteor");
             asteroid.sprite.position = new Vector2(asteroid.sprite.texture.Width / 2 , 1920);
             asteroid.sprite.rotation = 0f;
             asteroid.sprite.scale = new Vector2(1f, 1f);

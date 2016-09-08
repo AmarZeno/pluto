@@ -44,7 +44,7 @@ namespace Win32Pluto.Models
         }
 
         public Circle GetCircle() {
-            Circle circle = new Circle(sprite.position, radius);
+            Circle circle = new Circle(sprite.position, (sprite.texture.Width * sprite.scale.X)/2);
             return circle;
         }
 
