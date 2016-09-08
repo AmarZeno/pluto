@@ -58,16 +58,19 @@ namespace Win32Pluto.Managers
             }
             else if (asteroid.type == "BlueMeteor")
             {
-
                 // Do planet collision logic here
-
-
-                //int maxEscapeDistance = (viewport.Width / 2) + 500;
-                //float meteorDistance = Vector2.Distance(asteroid.sprite.position, new Vector2(viewport.Width/2, viewport.Height/2));
-                //if (meteorDistance > maxEscapeDistance) {
-                //    ResetAndRandomlyGenerateAsteroid(viewport, asteroid);
-                //}
-            }
+                bool didAsteroidCollideThePlanets = planetManager.CheckPlanetCollision(asteroid, scoreManager);
+                if (didAsteroidCollideThePlanets)
+                {
+                    // Remove the asteroid from the screen
+                    asteroid.sprite.position = new Vector2(3000, 3000);
+                }
+                    //int maxEscapeDistance = (viewport.Width / 2) + 500;
+                    //float meteorDistance = Vector2.Distance(asteroid.sprite.position, new Vector2(viewport.Width/2, viewport.Height/2));
+                    //if (meteorDistance > maxEscapeDistance) {
+                    //    ResetAndRandomlyGenerateAsteroid(viewport, asteroid);
+                    //}
+                }
         }
 
         public void ResetAndRandomlyGenerateAsteroid(Viewport viewport, Asteroid asteroid)
