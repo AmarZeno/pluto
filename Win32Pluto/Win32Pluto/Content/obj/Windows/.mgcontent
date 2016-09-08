@@ -12,14 +12,6 @@
     <File>C:/Users/u1077160/Documents/Rapid Prototyping/pluto/Win32Pluto/Win32Pluto/Content/ScoreFont.spritefont</File>
     <File>C:/Users/u1077160/Documents/Rapid Prototyping/pluto/Win32Pluto/Win32Pluto/Content/EarthShadow.png</File>
     <File>C:/Users/u1077160/Documents/Rapid Prototyping/pluto/Win32Pluto/Win32Pluto/Content/SaturnShadow.png</File>
-    <File>C:/Users/u1077160/Documents/Rapid Prototyping/pluto/Win32Pluto/Win32Pluto/Content/Orbit1_Normal.png</File>
-    <File>C:/Users/u1077160/Documents/Rapid Prototyping/pluto/Win32Pluto/Win32Pluto/Content/Orbit1_Selected.png</File>
-    <File>C:/Users/u1077160/Documents/Rapid Prototyping/pluto/Win32Pluto/Win32Pluto/Content/Orbit2_Normal.png</File>
-    <File>C:/Users/u1077160/Documents/Rapid Prototyping/pluto/Win32Pluto/Win32Pluto/Content/Orbit2_Selected.png</File>
-    <File>C:/Users/u1077160/Documents/Rapid Prototyping/pluto/Win32Pluto/Win32Pluto/Content/Orbit3_Normal.png</File>
-    <File>C:/Users/u1077160/Documents/Rapid Prototyping/pluto/Win32Pluto/Win32Pluto/Content/Orbit3_Selected.png</File>
-    <File>C:/Users/u1077160/Documents/Rapid Prototyping/pluto/Win32Pluto/Win32Pluto/Content/Orbit4_Normal.png</File>
-    <File>C:/Users/u1077160/Documents/Rapid Prototyping/pluto/Win32Pluto/Win32Pluto/Content/Orbit4_Selected.png</File>
     <File>C:/Users/u1077160/Documents/Rapid Prototyping/pluto/Win32Pluto/Win32Pluto/Content/RedMeteor.png</File>
     <File>C:/Users/u1077160/Documents/Rapid Prototyping/pluto/Win32Pluto/Win32Pluto/Content/BlueMeteor.png</File>
     <File>C:/Users/u1077160/Documents/Rapid Prototyping/pluto/Win32Pluto/Win32Pluto/Content/PlasmaBackground.png</File>
@@ -30,5 +22,11 @@
     <File>C:/Users/u1077160/Documents/Rapid Prototyping/pluto/Win32Pluto/Win32Pluto/Content/Life_Star_3.png</File>
     <File>C:/Users/u1077160/Documents/Rapid Prototyping/pluto/Win32Pluto/Win32Pluto/Content/Life_Star_4.png</File>
     <File>C:/Users/u1077160/Documents/Rapid Prototyping/pluto/Win32Pluto/Win32Pluto/Content/Life_Star_6.png</File>
+    <File>C:/Users/u1077160/Documents/Rapid Prototyping/pluto/Win32Pluto/Win32Pluto/Content/2Orbit_Normal.png</File>
+    <File>C:/Users/u1077160/Documents/Rapid Prototyping/pluto/Win32Pluto/Win32Pluto/Content/2Orbit_Selected.png</File>
+    <File>C:/Users/u1077160/Documents/Rapid Prototyping/pluto/Win32Pluto/Win32Pluto/Content/3Orbit_Normal.png</File>
+    <File>C:/Users/u1077160/Documents/Rapid Prototyping/pluto/Win32Pluto/Win32Pluto/Content/3Orbit_Selected.png</File>
+    <File>C:/Users/u1077160/Documents/Rapid Prototyping/pluto/Win32Pluto/Win32Pluto/Content/1Orbit_Normal.png</File>
+    <File>C:/Users/u1077160/Documents/Rapid Prototyping/pluto/Win32Pluto/Win32Pluto/Content/1Orbit_Selected.png</File>
   </SourceFiles>
 </SourceFileCollection>
