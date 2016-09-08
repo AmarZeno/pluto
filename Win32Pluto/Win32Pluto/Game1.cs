@@ -12,7 +12,7 @@ namespace Win32Pluto
     {
         MainMenu,
         Gameplay,
-        EndOfGame,
+        Credits,
     }
     /// <summary>
     /// This is the main type for your game.
@@ -31,6 +31,7 @@ namespace Win32Pluto
         ScoreManager scoreManager;
         AudioManager audioManager;
         MenuManager menuManager;
+        CreditManager creditManager;
 
         // Constants
         const float sunScale = 0.8f;
@@ -50,6 +51,7 @@ namespace Win32Pluto
             scoreManager = new ScoreManager();
             audioManager = new AudioManager();
             menuManager = new MenuManager();
+            creditManager = new CreditManager();
             Content.RootDirectory = "Content";
         }
 
@@ -80,6 +82,7 @@ namespace Win32Pluto
             // TODO: use this.Content to load your game content here
             LoadMenus();
             LoadSpace();
+            LoadCredits();
             LoadSun();
             LoadOrbits();
             LoadPlanets();
@@ -100,6 +103,7 @@ namespace Win32Pluto
             planetManager.Dispose();
             asteroidManager.Dispose();
             menuManager.Dispose();
+            creditManager.Dispose();
         }
 
         /// <summary>
@@ -110,7 +114,8 @@ namespace Win32Pluto
         protected override void Update(GameTime gameTime)
         {
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
-                Exit();
+                BringMainMenu();
+              //  Exit();
 
             // TODO: Add your update logic here
 
@@ -155,6 +160,9 @@ namespace Win32Pluto
                     asteroidManager.Draw(spriteBatch, sunManager);
                     scoreManager.Draw(spriteBatch);
                     break;
+                case GameState.Credits:
+                    creditManager.Draw(spriteBatch);
+                    break;
             }
 
             spriteBatch.End();
@@ -162,10 +170,6 @@ namespace Win32Pluto
             base.Draw(gameTime);
         }
 
-        public void Quit()
-        {
-            this.Exit();
-        }
 
         #region Game1 CustomAccessors
 
@@ -233,6 +237,14 @@ namespace Win32Pluto
             exitMenu.sprite.position = new Vector2(GraphicsDevice.Viewport.Width/2 - exitMenu.sprite.texture.Width/2, GraphicsDevice.Viewport.Height/2 - exitMenu.sprite.texture.Height/2 + 4*startMenu.sprite.texture.Height);
             exitMenu.sprite.origin = new Vector2(exitMenu.sprite.texture.Width / 2, exitMenu.sprite.texture.Height / 2);
             menuManager.Add(exitMenu);
+        }
+
+        public void LoadCredits() {
+            Credit credit = new Credit();
+            credit.sprite.texture = Content.Load<Texture2D>("Credits_Screen");
+            credit.sprite.position = new Vector2(GraphicsDevice.Viewport.Width/2, GraphicsDevice.Viewport.Height/2);
+            credit.sprite.origin = new Vector2(credit.sprite.texture.Width / 2, credit.sprite.texture.Height / 2);
+            creditManager.Add(credit);
         }
 
         public void LoadSun() {
@@ -367,6 +379,16 @@ namespace Win32Pluto
             Audio audioBGM = new Audio();
             audioBGM.backgroundAudio = Content.Load<Song>("Background_Audio");
             audioManager.turnBGMOn(audioBGM);
+        }
+
+        public void Quit()
+        {
+            this.Exit();
+        }
+
+        public void BringMainMenu()
+        {
+            gameState = GameState.MainMenu;
         }
 
         #endregion

@@ -53,6 +53,8 @@ namespace Win32Pluto.Managers
                         {
                             Console.WriteLine("Left Button Pressed");
                             gameState = GameState.Gameplay;
+                        } else if (menu.type == MenuType.CreditsMenu) {
+                            gameState = GameState.Credits;
                         }
                         else if (menu.type == MenuType.ExitMenu) {
                             game.Exit();
