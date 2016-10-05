@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  <SourceFile>C:/Users/u1077160/Documents/Rapid Prototyping/pluto/Win32Pluto/Win32Pluto/Content/2Orbit_Normal.png</SourceFile>
-  <SourceTime>2016-09-07T21:45:04-06:00</SourceTime>
-  <DestFile>C:/Users/u1077160/Documents/Rapid Prototyping/pluto/Win32Pluto/Win32Pluto/Content/bin/Windows/2Orbit_Normal.xnb</DestFile>
-  <DestTime>2016-09-08T07:56:04.1844953-06:00</DestTime>
+  <SourceFile>C:/Users/u1077160/Documents/rapidprototyping/pluto/Win32Pluto/Win32Pluto/Content/2Orbit_Normal.png</SourceFile>
+  <SourceTime>2016-10-04T22:04:21.4015964-06:00</SourceTime>
+  <DestFile>C:/Users/u1077160/Documents/rapidprototyping/pluto/Win32Pluto/Win32Pluto/Content/bin/Windows/2Orbit_Normal.xnb</DestFile>
+  <DestTime>2016-10-04T22:12:12.3076096-06:00</DestTime>
   <Importer>TextureImporter</Importer>
   <ImporterTime>2016-03-30T00:36:08-06:00</ImporterTime>
   <Processor>TextureProcessor</Processor>

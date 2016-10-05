@@ -10,7 +10,7 @@ namespace Win32Pluto.Managers
     class DisplayManager
     {
         public void EnableFullScreen(GraphicsDeviceManager graphics) {
-           // graphics.IsFullScreen = true;
+            graphics.IsFullScreen = true;
             graphics.PreferredBackBufferWidth = 1920;
             graphics.PreferredBackBufferHeight = 1080;
             graphics.ApplyChanges();
